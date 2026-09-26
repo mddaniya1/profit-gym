@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight, Star, Play, Quote } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Star, Quote } from 'lucide-react';
 import { TESTIMONIALS } from '../data/content';
 
 export const Testimonials: React.FC = () => {
@@ -26,11 +26,11 @@ export const Testimonials: React.FC = () => {
         {/* Section Header with Carousel Controls matching Reference */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div>
-            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C6FF00] inline-block mb-3">
-              TESTIMONIALS
+            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#D4AF37] inline-block mb-3">
+              MEMBER EXPERIENCES
             </span>
             <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white tracking-tight leading-[0.95] max-w-2xl">
-              BUILT FOR COMMITMENT, PROVEN BY MEMBERS
+              REAL VOICES<span className="text-[#D4AF37]">.</span> REAL EXPERIENCES<span className="text-[#D4AF37]">.</span>
             </h2>
           </div>
 
@@ -39,14 +39,14 @@ export const Testimonials: React.FC = () => {
             <button
               onClick={prevSlide}
               aria-label="Previous testimonial"
-              className="w-12 h-12 rounded-full border border-[#2E2E2E] bg-[#161616] flex items-center justify-center text-white hover:border-[#C6FF00] hover:text-[#C6FF00] transition-all cursor-pointer active:scale-95"
+              className="w-12 h-12 rounded-full border border-[#2E2E2E] bg-[#161616] flex items-center justify-center text-white hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all cursor-pointer active:scale-95"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
             <button
               onClick={nextSlide}
               aria-label="Next testimonial"
-              className="w-12 h-12 rounded-full bg-[#C6FF00] flex items-center justify-center text-black hover:bg-[#b0e600] transition-all cursor-pointer active:scale-95 shadow-[0_0_15px_rgba(198,255,0,0.3)]"
+              className="w-12 h-12 rounded-full bg-[#D4AF37] flex items-center justify-center text-black hover:bg-[#c59e2b] transition-all cursor-pointer active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.3)]"
             >
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -63,14 +63,14 @@ export const Testimonials: React.FC = () => {
 
             <div className="relative z-10">
               {/* Highlight Stat Tag */}
-              <div className="inline-block bg-[#C6FF00]/15 text-[#C6FF00] border border-[#C6FF00]/30 text-xs font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-6">
+              <div className="inline-block bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/30 text-xs font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-6">
                 {activeTestimonial.highlightStat}
               </div>
 
               {/* Star Rating */}
-              <div className="flex items-center gap-1.5 text-[#C6FF00] mb-6">
+              <div className="flex items-center gap-1.5 text-[#D4AF37] mb-6">
                 {[...Array(activeTestimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[#C6FF00]" />
+                  <Star key={i} className="w-5 h-5 fill-[#D4AF37]" />
                 ))}
               </div>
 
@@ -82,7 +82,7 @@ export const Testimonials: React.FC = () => {
 
             {/* Author Footer */}
             <div className="flex items-center gap-4 pt-6 border-t border-[#262626]">
-              <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#C6FF00] shrink-0 bg-neutral-800">
+              <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#D4AF37] shrink-0 bg-neutral-800">
                 <img
                   src={activeTestimonial.image}
                   alt={activeTestimonial.name}
@@ -101,7 +101,7 @@ export const Testimonials: React.FC = () => {
             </div>
           </div>
 
-          {/* 2 Preview / Side Testimonial Cards matching reference */}
+          {/* 2 Preview / Side Testimonial Cards */}
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
             {previewItems.map((item, idx) => (
               <div
@@ -111,12 +111,12 @@ export const Testimonials: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C6FF00] bg-black px-2.5 py-1 rounded-full border border-[#2B2B2B]">
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#D4AF37] bg-black px-2.5 py-1 rounded-full border border-[#2B2B2B]">
                       {item.highlightStat}
                     </span>
-                    <div className="flex items-center gap-1 text-[#C6FF00]">
+                    <div className="flex items-center gap-1 text-[#D4AF37]">
                       {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-[#C6FF00]" />
+                        <Star key={i} className="w-3.5 h-3.5 fill-[#D4AF37]" />
                       ))}
                     </div>
                   </div>
@@ -136,7 +136,7 @@ export const Testimonials: React.FC = () => {
                     />
                   </div>
                   <div className="min-w-0">
-                    <h5 className="font-display text-base sm:text-lg text-white font-bold uppercase truncate group-hover:text-[#C6FF00] transition-colors">
+                    <h5 className="font-display text-base sm:text-lg text-white font-bold uppercase truncate group-hover:text-[#D4AF37] transition-colors">
                       {item.name}
                     </h5>
                     <p className="text-[11px] text-neutral-400 truncate">

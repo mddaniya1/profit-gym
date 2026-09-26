@@ -4,7 +4,7 @@
   :root {
     --font-display: 'Bebas Neue', cursive, sans-serif;
     --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-    --neon: #C6FF00;
+    --neon: #D4AF37;
   }
 
   body {
@@ -32,26 +32,26 @@
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C6FF00;
+  background: #D4AF37;
 }
 
 /* Glow effects */
 .glow-neon {
-  box-shadow: 0 0 25px rgba(198, 255, 0, 0.35);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
 }
 
 .glow-neon-sm {
-  box-shadow: 0 0 12px rgba(198, 255, 0, 0.25);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
 }
 
 .border-neon-glow {
-  border-color: #C6FF00;
-  box-shadow: 0 0 15px rgba(198, 255, 0, 0.2);
+  border-color: #D4AF37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
 }
 
 /* Outline text for giant wordmark */
 .text-stroke-neon {
-  -webkit-text-stroke: 1.5px rgba(198, 255, 0, 0.35);
+  -webkit-text-stroke: 1.5px rgba(212, 175, 55, 0.35);
   color: transparent;
 }
 

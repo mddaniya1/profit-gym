@@ -33,14 +33,14 @@ export type TaskComplexity = 'general' | 'fast' | 'complex';
 
 const ROLE_METADATA: Record<ChatRole, { name: string; title: string; avatar: string; icon: any; starter: string }> = {
   coach: {
-    name: 'Zulqarnain AI Coach',
-    title: 'Founder & Master Trainer',
-    avatar: ASSETS.zulqarnain,
+    name: 'Pro Fit Gym AI Coach',
+    title: 'North Nazimabad Fitness Lead',
+    avatar: ASSETS.gymInterior,
     icon: Dumbbell,
-    starter: "Hey! I'm Zulqarnain. I'm here to build your discipline, audit your workouts, and keep you relentless. What goal are we conquering today?",
+    starter: "Hey! Welcome to Pro Fit Gym in North Nazimabad. I'm here to guide your training, classes (Aerobics, Zumba, Cycling), and fitness journey. What goal are we conquering today?",
   },
   nutritionist: {
-    name: 'Pro.Fit Sports Nutritionist',
+    name: 'Pro Fit Gym Sports Nutritionist',
     title: 'Macronutrient & Metabolic Expert',
     avatar: ASSETS.nutrition,
     icon: Apple,
@@ -58,7 +58,7 @@ const ROLE_METADATA: Record<ChatRole, { name: string; title: string; avatar: str
 const SUGGESTED_PROMPTS: Record<ChatRole, string[]> = {
   coach: [
     'Design a 4-day hypertrophy split for me',
-    'Which Pro.Fit membership suits my goals?',
+    'Which Pro Fit Gym membership suits my goals?',
     'How do I stay consistent when busy?',
   ],
   nutritionist: [
@@ -183,7 +183,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
       const errorMessage: ChatMessage = {
         id: `err-${Date.now()}`,
         role: 'model',
-        text: "I hit a temporary connection glitch. If you need immediate guidance, you can also message Zulqarnain directly on WhatsApp (0339-4050702).",
+        text: "I hit a temporary connection glitch. If you need immediate guidance, you can also message Pro Fit Gym directly on WhatsApp (0320 8200254).",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         modelUsed: 'offline',
       };
@@ -228,7 +228,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
         <div className="p-3.5 sm:p-4 bg-[#181818] border-b border-[#282828] flex items-center justify-between gap-3 shrink-0">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-[#C6FF00] bg-neutral-900 shrink-0">
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-[#D4AF37] bg-neutral-900 shrink-0">
                 <img
                   src={currentRoleMeta.avatar}
                   alt={currentRoleMeta.name}
@@ -236,7 +236,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-[#C6FF00] border-2 border-black" />
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-[#D4AF37] border-2 border-black" />
             </div>
 
             {/* Role dropdown trigger */}
@@ -248,7 +248,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
               >
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <span className="font-display text-base sm:text-lg text-white font-black tracking-tight group-hover:text-[#C6FF00] transition-colors">
+                    <span className="font-display text-base sm:text-lg text-white font-black tracking-tight group-hover:text-[#D4AF37] transition-colors">
                       {currentRoleMeta.name}
                     </span>
                     <ChevronDown className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white transition-colors" />
@@ -275,7 +275,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
                         onClick={() => handleRoleChange(r)}
                         className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left transition-colors cursor-pointer ${
                           role === r
-                            ? 'bg-[#C6FF00] text-black font-bold'
+                            ? 'bg-[#D4AF37] text-black font-bold'
                             : 'text-neutral-200 hover:bg-[#282828]'
                         }`}
                       >
@@ -326,7 +326,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
             {/* Speed & Complexity Model Toggle Bar */}
             <div className="px-4 py-2 bg-[#151515] border-b border-[#242424] flex flex-wrap items-center justify-between gap-2 text-xs">
               <div className="flex items-center gap-1 text-[11px] text-neutral-400 font-medium">
-                <Sparkles className="w-3.5 h-3.5 text-[#C6FF00]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>Engine:</span>
               </div>
               <div className="flex items-center gap-1 p-0.5 rounded-lg bg-[#0E0E0E] border border-[#262626]">
@@ -335,7 +335,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
                   onClick={() => setComplexity('fast')}
                   className={`px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 transition-all cursor-pointer ${
                     complexity === 'fast'
-                      ? 'bg-[#C6FF00] text-black shadow-sm'
+                      ? 'bg-[#D4AF37] text-black shadow-sm'
                       : 'text-neutral-400 hover:text-white'
                   }`}
                   title="Super fast responses using gemini-3.1-flash-lite"
@@ -348,7 +348,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
                   onClick={() => setComplexity('general')}
                   className={`px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 transition-all cursor-pointer ${
                     complexity === 'general'
-                      ? 'bg-[#C6FF00] text-black shadow-sm'
+                      ? 'bg-[#D4AF37] text-black shadow-sm'
                       : 'text-neutral-400 hover:text-white'
                   }`}
                   title="Balanced intelligent coaching using gemini-3.5-flash"
@@ -361,7 +361,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
                   onClick={() => setComplexity('complex')}
                   className={`px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 transition-all cursor-pointer ${
                     complexity === 'complex'
-                      ? 'bg-[#C6FF00] text-black shadow-sm'
+                      ? 'bg-[#D4AF37] text-black shadow-sm'
                       : 'text-neutral-400 hover:text-white'
                   }`}
                   title="Deep biomechanics & periodization analysis using gemini-3.1-pro-preview"
@@ -382,7 +382,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
                     className={`flex gap-3 ${isUser ? 'justify-end' : 'justify-start'}`}
                   >
                     {!isUser && (
-                      <div className="w-8 h-8 rounded-full overflow-hidden border border-[#C6FF00]/50 bg-neutral-900 shrink-0 mt-1">
+                      <div className="w-8 h-8 rounded-full overflow-hidden border border-[#D4AF37]/50 bg-neutral-900 shrink-0 mt-1">
                         <img
                           src={currentRoleMeta.avatar}
                           alt="Coach"
@@ -408,7 +408,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
                         {msg.modelUsed && (
                           <>
                             <span>·</span>
-                            <span className="text-[#C6FF00]/90 font-mono">{msg.modelUsed}</span>
+                            <span className="text-[#D4AF37]/90 font-mono">{msg.modelUsed}</span>
                           </>
                         )}
                       </div>
@@ -426,7 +426,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
               {/* Typing indicator */}
               {isLoading && (
                 <div className="flex gap-3 justify-start items-center">
-                  <div className="w-8 h-8 rounded-full overflow-hidden border border-[#C6FF00]/50 bg-neutral-900 shrink-0">
+                  <div className="w-8 h-8 rounded-full overflow-hidden border border-[#D4AF37]/50 bg-neutral-900 shrink-0">
                     <img
                       src={currentRoleMeta.avatar}
                       alt="Coach"
@@ -435,9 +435,9 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
                     />
                   </div>
                   <div className="rounded-2xl px-4 py-2.5 bg-[#181818] border border-[#2A2A2A] flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#C6FF00] animate-bounce" />
-                    <span className="w-2 h-2 rounded-full bg-[#C6FF00] animate-bounce [animation-delay:0.2s]" />
-                    <span className="w-2 h-2 rounded-full bg-[#C6FF00] animate-bounce [animation-delay:0.4s]" />
+                    <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-bounce" />
+                    <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-bounce [animation-delay:0.2s]" />
+                    <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-bounce [animation-delay:0.4s]" />
                     <span className="text-[11px] text-neutral-400 ml-1.5">Analyzing protocol...</span>
                   </div>
                 </div>
@@ -464,7 +464,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
 
             {/* Chat Input & Conversion Footer */}
             <div className="p-3.5 sm:p-4 bg-[#181818] border-t border-[#262626]">
-              <div className="flex items-end gap-2.5 bg-[#0D0D0D] border border-[#2C2C2C] focus-within:border-[#C6FF00] rounded-2xl p-2 transition-colors">
+              <div className="flex items-end gap-2.5 bg-[#0D0D0D] border border-[#2C2C2C] focus-within:border-[#D4AF37] rounded-2xl p-2 transition-colors">
                 <textarea
                   ref={textareaRef}
                   value={inputText}
@@ -479,7 +479,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
                   onClick={() => handleSendMessage()}
                   disabled={!inputText.trim() || isLoading}
                   aria-label="Send message"
-                  className="p-2.5 rounded-xl bg-[#C6FF00] text-black font-bold hover:bg-[#b0e600] disabled:opacity-40 disabled:hover:bg-[#C6FF00] transition-all cursor-pointer active:scale-95 shrink-0"
+                  className="p-2.5 rounded-xl bg-[#D4AF37] text-black font-bold hover:bg-[#c59e2b] disabled:opacity-40 disabled:hover:bg-[#D4AF37] transition-all cursor-pointer active:scale-95 shrink-0"
                 >
                   <Send className="w-4 h-4" />
                 </button>
@@ -490,13 +490,13 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
                 <span>Want hands-on 1-on-1 private training in Karachi?</span>
                 <div className="flex items-center gap-3">
                   <a
-                    href={getWhatsAppLink('Hi Zulqarnain, I was chatting with the Pro.Fit AI coach and would like to schedule a session.')}
+                    href={getWhatsAppLink('Hi Pro Fit Gym, I was chatting with your AI coach and would like to inquire about joining in North Nazimabad.')}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#C6FF00] hover:underline font-semibold flex items-center gap-1"
+                    className="text-[#D4AF37] hover:underline font-semibold flex items-center gap-1"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
-                    <span>WhatsApp Zulqarnain</span>
+                    <span>WhatsApp Pro Fit Gym</span>
                   </a>
                   <span>·</span>
                   <button
@@ -504,7 +504,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
                       onClose();
                       onOpenBooking();
                     }}
-                    className="text-white hover:text-[#C6FF00] font-semibold underline"
+                    className="text-white hover:text-[#D4AF37] font-semibold underline"
                   >
                     Free Assessment
                   </button>

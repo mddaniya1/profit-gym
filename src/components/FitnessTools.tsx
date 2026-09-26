@@ -88,7 +88,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
     const bmi = +(w / (heightInMeters * heightInMeters)).toFixed(1);
 
     let bmiCategory = 'Normal Weight';
-    let bmiColor = '#C6FF00';
+    let bmiColor = '#D4AF37';
     let bmiAdvice = 'You are in an optimal healthy bodyweight range. Focus on body recomposition and progressive overload.';
 
     if (bmi < 18.5) {
@@ -164,14 +164,14 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
   }, [normalizedWeight, normalizedHeight, age, gender, activity, goal]);
 
   // Prefilled WhatsApp message
-  const shareStatsMessage = `Hi Zulqarnain! I calculated my stats on Pro.Fit:\n- Gender: ${gender}\n- Weight: ${Math.round(normalizedWeight)} kg\n- Height: ${Math.round(normalizedHeight)} cm\n- BMI: ${calculations.bmi} (${calculations.bmiCategory})\n- Maintenance (TDEE): ${calculations.tdee} kcal\n- Target Intake: ${calculations.targetCalories} kcal (${calculations.goalLabel})\n- Protein Goal: ${calculations.proteinGrams}g/day\n\nI want to start a custom coaching plan with you. What do you recommend?`;
+  const shareStatsMessage = `Hi Pro Fit Gym! I calculated my stats at Pro Fit Gym:\n- Gender: ${gender}\n- Weight: ${Math.round(normalizedWeight)} kg\n- Height: ${Math.round(normalizedHeight)} cm\n- BMI: ${calculations.bmi} (${calculations.bmiCategory})\n- Maintenance (TDEE): ${calculations.tdee} kcal\n- Target Intake: ${calculations.targetCalories} kcal (${calculations.goalLabel})\n- Protein Goal: ${calculations.proteinGrams}g/day\n\nI want to start a custom gym and nutrition plan at North Nazimabad. What do you recommend?`;
 
   return (
     <section id="tools" className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-[#0D0D0D]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1C1C1C] border border-[#2B2B2B] text-xs font-extrabold uppercase tracking-widest text-[#C6FF00] mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1C1C1C] border border-[#2B2B2B] text-xs font-extrabold uppercase tracking-widest text-[#D4AF37] mb-3">
             <Calculator className="w-3.5 h-3.5" />
             <span>DATA-DRIVEN FITNESS TOOLS</span>
           </div>
@@ -194,7 +194,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                 onClick={() => setActiveTab('tdee')}
                 className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                   activeTab === 'tdee'
-                    ? 'bg-[#C6FF00] text-black shadow-md'
+                    ? 'bg-[#D4AF37] text-black shadow-md'
                     : 'text-neutral-400 hover:text-white'
                 }`}
               >
@@ -206,7 +206,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                 onClick={() => setActiveTab('bmi')}
                 className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                   activeTab === 'bmi'
-                    ? 'bg-[#C6FF00] text-black shadow-md'
+                    ? 'bg-[#D4AF37] text-black shadow-md'
                     : 'text-neutral-400 hover:text-white'
                 }`}
               >
@@ -223,7 +223,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                   type="button"
                   onClick={() => handleUnitChange('metric')}
                   className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    unit === 'metric' ? 'bg-[#222222] text-[#C6FF00]' : 'text-neutral-500 hover:text-white'
+                    unit === 'metric' ? 'bg-[#222222] text-[#D4AF37]' : 'text-neutral-500 hover:text-white'
                   }`}
                 >
                   Metric (kg/cm)
@@ -232,7 +232,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                   type="button"
                   onClick={() => handleUnitChange('imperial')}
                   className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    unit === 'imperial' ? 'bg-[#222222] text-[#C6FF00]' : 'text-neutral-500 hover:text-white'
+                    unit === 'imperial' ? 'bg-[#222222] text-[#D4AF37]' : 'text-neutral-500 hover:text-white'
                   }`}
                 >
                   Imperial (lbs/ft)
@@ -256,7 +256,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                     onClick={() => setGender('male')}
                     className={`py-3 px-4 rounded-2xl border text-xs font-bold uppercase tracking-wider transition-all cursor-pointer text-center ${
                       gender === 'male'
-                        ? 'bg-[#1C1C1C] border-[#C6FF00] text-[#C6FF00] shadow-[0_0_15px_rgba(198,255,0,0.15)]'
+                        ? 'bg-[#1C1C1C] border-[#D4AF37] text-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.15)]'
                         : 'bg-[#101010] border-[#262626] text-neutral-400 hover:border-[#383838]'
                     }`}
                   >
@@ -267,7 +267,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                     onClick={() => setGender('female')}
                     className={`py-3 px-4 rounded-2xl border text-xs font-bold uppercase tracking-wider transition-all cursor-pointer text-center ${
                       gender === 'female'
-                        ? 'bg-[#1C1C1C] border-[#C6FF00] text-[#C6FF00] shadow-[0_0_15px_rgba(198,255,0,0.15)]'
+                        ? 'bg-[#1C1C1C] border-[#D4AF37] text-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.15)]'
                         : 'bg-[#101010] border-[#262626] text-neutral-400 hover:border-[#383838]'
                     }`}
                   >
@@ -292,7 +292,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                   max="80"
                   value={age}
                   onChange={(e) => setAge(Number(e.target.value))}
-                  className="w-full h-2 bg-[#222222] rounded-lg appearance-none cursor-pointer accent-[#C6FF00]"
+                  className="w-full h-2 bg-[#222222] rounded-lg appearance-none cursor-pointer accent-[#D4AF37]"
                 />
               </div>
 
@@ -315,7 +315,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                     max="160"
                     value={weightKg}
                     onChange={(e) => setWeightKg(Number(e.target.value))}
-                    className="w-full h-2 bg-[#222222] rounded-lg appearance-none cursor-pointer accent-[#C6FF00]"
+                    className="w-full h-2 bg-[#222222] rounded-lg appearance-none cursor-pointer accent-[#D4AF37]"
                   />
                 ) : (
                   <input
@@ -326,7 +326,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                     max="350"
                     value={weightLbs}
                     onChange={(e) => setWeightLbs(Number(e.target.value))}
-                    className="w-full h-2 bg-[#222222] rounded-lg appearance-none cursor-pointer accent-[#C6FF00]"
+                    className="w-full h-2 bg-[#222222] rounded-lg appearance-none cursor-pointer accent-[#D4AF37]"
                   />
                 )}
               </div>
@@ -352,7 +352,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                     max="220"
                     value={heightCm}
                     onChange={(e) => setHeightCm(Number(e.target.value))}
-                    className="w-full h-2 bg-[#222222] rounded-lg appearance-none cursor-pointer accent-[#C6FF00]"
+                    className="w-full h-2 bg-[#222222] rounded-lg appearance-none cursor-pointer accent-[#D4AF37]"
                   />
                 ) : (
                   <div className="grid grid-cols-2 gap-3">
@@ -361,7 +361,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                         aria-label="Height in feet"
                         value={heightFeet}
                         onChange={(e) => setHeightFeet(Number(e.target.value))}
-                        className="w-full bg-[#101010] border border-[#262626] rounded-xl px-3 py-2 text-sm text-white font-bold focus:border-[#C6FF00] focus:outline-none"
+                        className="w-full bg-[#101010] border border-[#262626] rounded-xl px-3 py-2 text-sm text-white font-bold focus:border-[#D4AF37] focus:outline-none"
                       >
                         {[4, 5, 6, 7].map((ft) => (
                           <option key={ft} value={ft}>
@@ -375,7 +375,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                         aria-label="Height in inches"
                         value={heightInches}
                         onChange={(e) => setHeightInches(Number(e.target.value))}
-                        className="w-full bg-[#101010] border border-[#262626] rounded-xl px-3 py-2 text-sm text-white font-bold focus:border-[#C6FF00] focus:outline-none"
+                        className="w-full bg-[#101010] border border-[#262626] rounded-xl px-3 py-2 text-sm text-white font-bold focus:border-[#D4AF37] focus:outline-none"
                       >
                         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((inch) => (
                           <option key={inch} value={inch}>
@@ -398,7 +398,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                     id="fitness-activity-select"
                     value={activity}
                     onChange={(e) => setActivity(e.target.value as ActivityLevel)}
-                    className="w-full bg-[#101010] border border-[#262626] rounded-xl px-3.5 py-3 text-sm text-white font-bold focus:border-[#C6FF00] focus:outline-none cursor-pointer"
+                    className="w-full bg-[#101010] border border-[#262626] rounded-xl px-3.5 py-3 text-sm text-white font-bold focus:border-[#D4AF37] focus:outline-none cursor-pointer"
                   >
                     {Object.entries(activityMultipliers).map(([key, item]) => (
                       <option key={key} value={key}>
@@ -428,11 +428,11 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                         onClick={() => setGoal(key as FitnessGoal)}
                         className={`flex items-center gap-2 p-3 rounded-2xl border text-xs font-bold text-left transition-all cursor-pointer ${
                           goal === key
-                            ? 'bg-[#1F1F1F] border-[#C6FF00] text-white shadow-sm'
+                            ? 'bg-[#1F1F1F] border-[#D4AF37] text-white shadow-sm'
                             : 'bg-[#101010] border-[#242424] text-neutral-400 hover:border-[#333]'
                         }`}
                       >
-                        <GIcon className={`w-3.5 h-3.5 shrink-0 ${goal === key ? 'text-[#C6FF00]' : 'text-neutral-500'}`} />
+                        <GIcon className={`w-3.5 h-3.5 shrink-0 ${goal === key ? 'text-[#D4AF37]' : 'text-neutral-500'}`} />
                         <span className="leading-snug">{label}</span>
                       </button>
                     ))}
@@ -447,7 +447,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
               {activeTab === 'tdee' ? (
                 <>
                   <div className="border-b border-[#222222] pb-6">
-                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#C6FF00] block mb-1">
+                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#D4AF37] block mb-1">
                       DAILY ENERGY EXPENDITURE (TDEE)
                     </span>
                     <div className="flex items-baseline gap-3">
@@ -459,7 +459,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                       </span>
                     </div>
                     <p className="text-xs text-neutral-400 mt-2">
-                      Goal Target: <span className="text-[#C6FF00] font-bold">{calculations.goalLabel}</span> (Baseline Maintenance: {calculations.tdee.toLocaleString()} kcal)
+                      Goal Target: <span className="text-[#D4AF37] font-bold">{calculations.goalLabel}</span> (Baseline Maintenance: {calculations.tdee.toLocaleString()} kcal)
                     </p>
                   </div>
 
@@ -470,7 +470,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                     </span>
                     <div className="grid grid-cols-3 gap-3 text-center">
                       <div className="p-3.5 rounded-2xl bg-[#141414] border border-[#262626]">
-                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#C6FF00] block">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#D4AF37] block">
                           Protein
                         </span>
                         <span className="font-display text-2xl font-black text-white">
@@ -511,7 +511,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                 /* TAB 2: BMI RESULTS */
                 <>
                   <div className="border-b border-[#222222] pb-6">
-                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#C6FF00] block mb-1">
+                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#D4AF37] block mb-1">
                       BODY MASS INDEX (BMI)
                     </span>
                     <div className="flex items-baseline gap-4">
@@ -534,7 +534,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                     <div className="mt-4 space-y-1.5">
                       <div className="h-3 w-full rounded-full bg-[#202020] overflow-hidden flex">
                         <div className="h-full bg-sky-500 w-[18%]" title="Underweight (< 18.5)" />
-                        <div className="h-full bg-[#C6FF00] w-[35%]" title="Normal (18.5 - 24.9)" />
+                        <div className="h-full bg-[#D4AF37] w-[35%]" title="Normal (18.5 - 24.9)" />
                         <div className="h-full bg-amber-400 w-[25%]" title="Overweight (25 - 29.9)" />
                         <div className="h-full bg-rose-500 w-[22%]" title="Obese (30+)" />
                       </div>
@@ -565,12 +565,12 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                 </>
               )}
 
-              {/* Coach Zulqarnain Bio-Mechanic Note */}
-              <div className="p-4 rounded-2xl bg-gradient-to-r from-[#181818] to-[#121212] border-l-4 border-l-[#C6FF00] border-y border-r border-[#262626]">
+              {/* Pro Fit Gym Coaching Audit */}
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-[#181818] to-[#121212] border-l-4 border-l-[#D4AF37] border-y border-r border-[#262626]">
                 <div className="flex items-center gap-2 mb-1">
-                  <Sparkles className="w-3.5 h-3.5 text-[#C6FF00]" />
+                  <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
                   <span className="text-[11px] font-black uppercase tracking-wider text-white">
-                    Zulqarnain's Coaching Audit:
+                    Pro Fit Gym Coaching Audit:
                   </span>
                 </div>
                 <p className="text-xs text-neutral-300 leading-relaxed">
@@ -584,10 +584,10 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                   href={getWhatsAppLink(shareStatsMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-4 px-6 rounded-full bg-[#C6FF00] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#b0e600] transition-all cursor-pointer shadow-[0_0_20px_rgba(198,255,0,0.35)] active:scale-95 group"
+                  className="w-full py-4 px-6 rounded-full bg-[#D4AF37] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#c59e2b] transition-all cursor-pointer shadow-[0_0_20px_rgba(212,175,55,0.35)] active:scale-95 group"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Send My Stats to Zulqarnain (WhatsApp)</span>
+                  <span>Send My Stats to Pro Fit Gym (WhatsApp)</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </a>
 
@@ -604,7 +604,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                     <button
                       type="button"
                       onClick={onOpenChat}
-                      className="py-3 px-4 rounded-full border border-[#C6FF00]/40 hover:border-[#C6FF00] bg-[#C6FF00]/10 hover:bg-[#C6FF00]/20 text-[#C6FF00] font-extrabold text-xs uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer"
+                      className="py-3 px-4 rounded-full border border-[#D4AF37]/40 hover:border-[#D4AF37] bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] font-extrabold text-xs uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer"
                       title="Ask AI Coach for advice on these numbers"
                     >
                       <Sparkles className="w-3.5 h-3.5" />

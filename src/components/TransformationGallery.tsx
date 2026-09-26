@@ -67,28 +67,28 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
 
   if (!currentItem) return null;
 
-  const whatsappMessage = `Hi Zulqarnain! I was looking at ${currentItem.name}'s transformation (${currentItem.duration} ${currentItem.category}) on Pro.Fit. I have a similar goal and would like to start coaching.`;
+  const whatsappMessage = `Hi Pro Fit Gym! I was looking at ${currentItem.name}'s transformation (${currentItem.duration} ${currentItem.category}) at Pro Fit Gym North Nazimabad. I have a similar goal and would like to start training.`;
 
   return (
     <section id="transformations" className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-[#0A0A0A] overflow-hidden">
-      {/* Decorative background grid and neon accents */}
+      {/* Decorative background grid and gold accents */}
       <div className="absolute inset-0 bg-[radial-gradient(#1f1f1f_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#C6FF00]/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-10 left-0 w-96 h-96 bg-[#C6FF00]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#D4AF37]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-96 h-96 bg-[#D4AF37]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181818] border border-[#2B2B2B] text-xs font-extrabold uppercase tracking-widest text-[#C6FF00] mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181818] border border-[#2B2B2B] text-xs font-extrabold uppercase tracking-widest text-[#D4AF37] mb-3">
               <Award className="w-3.5 h-3.5" />
               <span>PROVEN CLIENT RESULTS</span>
             </div>
             <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white tracking-tight leading-[0.95]">
-              REAL BODIES<span className="text-[#C6FF00]">.</span> REAL STRENGTH<span className="text-[#C6FF00]">.</span>
+              REAL BODIES<span className="text-[#D4AF37]">.</span> REAL STRENGTH<span className="text-[#D4AF37]">.</span>
             </h2>
             <p className="text-sm sm:text-base text-neutral-400 font-medium mt-3">
-              Zero crash diets. Zero vanity gimmicks. Documented client transformations built on Coach Zulqarnain’s progressive overload and metabolic precision.
+              Zero crash diets. Zero vanity gimmicks. Documented member transformations achieved on the Pro Fit Gym floor with progressive overload and metabolic precision.
             </p>
           </div>
 
@@ -107,7 +107,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
                 type="button"
                 onClick={handlePrev}
                 aria-label="Previous transformation"
-                className="w-12 h-12 rounded-full border border-[#2B2B2B] bg-[#141414] hover:bg-[#202020] hover:border-[#C6FF00] text-white hover:text-[#C6FF00] flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-lg"
+                className="w-12 h-12 rounded-full border border-[#2B2B2B] bg-[#141414] hover:bg-[#202020] hover:border-[#D4AF37] text-white hover:text-[#D4AF37] flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-lg"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -116,7 +116,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
                 type="button"
                 onClick={handleNext}
                 aria-label="Next transformation"
-                className="w-12 h-12 rounded-full border border-[#2B2B2B] bg-[#141414] hover:bg-[#202020] hover:border-[#C6FF00] text-white hover:text-[#C6FF00] flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-lg"
+                className="w-12 h-12 rounded-full border border-[#2B2B2B] bg-[#141414] hover:bg-[#202020] hover:border-[#D4AF37] text-white hover:text-[#D4AF37] flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-lg"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -133,7 +133,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer border ${
                 activeCategory === cat
-                  ? 'bg-[#C6FF00] text-black border-[#C6FF00] shadow-[0_0_15px_rgba(198,255,0,0.3)] font-extrabold'
+                  ? 'bg-[#D4AF37] text-black border-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.3)] font-extrabold'
                   : 'bg-[#141414] text-neutral-400 border-[#262626] hover:text-white hover:border-[#383838]'
               }`}
             >
@@ -150,7 +150,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
               <img
                 key={currentItem.id}
                 src={currentItem.image}
-                alt={`${currentItem.name} before and after transformation at Pro.Fit`}
+                alt={`${currentItem.name} before and after transformation at Pro Fit Gym`}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95 contrast-105"
                 referrerPolicy="no-referrer"
               />
@@ -162,7 +162,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
                 </span>
               </div>
               <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
-                <span className="px-3 py-1 rounded-md bg-[#C6FF00] text-black text-[10px] font-black uppercase tracking-widest shadow-md">
+                <span className="px-3 py-1 rounded-md bg-[#D4AF37] text-black text-[10px] font-black uppercase tracking-widest shadow-md">
                   AFTER ({currentItem.duration})
                 </span>
               </div>
@@ -172,7 +172,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
 
               {/* Bottom Card Identity overlay on mobile */}
               <div className="absolute bottom-4 left-4 right-4 lg:hidden bg-black/80 backdrop-blur-md p-3.5 rounded-2xl border border-white/10">
-                <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#C6FF00]">
+                <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#D4AF37]">
                   {currentItem.category}
                 </div>
                 <div className="font-display text-2xl font-black text-white">
@@ -190,7 +190,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
                 {/* Client Header Info (Desktop) */}
                 <div className="hidden lg:flex items-center justify-between border-b border-[#242424] pb-4 mb-6">
                   <div>
-                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#C6FF00] block mb-1">
+                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#D4AF37] block mb-1">
                       {currentItem.category}
                     </span>
                     <h3 className="font-display text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
@@ -199,7 +199,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
                     </h3>
                     <div className="flex items-center gap-3 text-xs text-neutral-400 mt-1">
                       <span className="flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-[#C6FF00]" />
+                        <MapPin className="w-3 h-3 text-[#D4AF37]" />
                         {currentItem.location}
                       </span>
                       <span>·</span>
@@ -211,7 +211,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
                     <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-500 block">
                       Program Duration
                     </span>
-                    <span className="font-display text-2xl font-black text-[#C6FF00]">
+                    <span className="font-display text-2xl font-black text-[#D4AF37]">
                       {currentItem.duration}
                     </span>
                     <span className="text-[11px] text-neutral-400 block font-medium">
@@ -237,7 +237,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
                         <div className="font-display text-lg text-white font-black">
                           {stat.after}
                         </div>
-                        <div className="mt-1 text-[11px] font-extrabold text-[#C6FF00] bg-[#C6FF00]/10 py-0.5 rounded-md">
+                        <div className="mt-1 text-[11px] font-extrabold text-[#D4AF37] bg-[#D4AF37]/10 py-0.5 rounded-md">
                           {stat.diff}
                         </div>
                       </div>
@@ -251,23 +251,23 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
                     "{currentItem.testimonial}"
                   </div>
                   <div className="mt-3 flex items-center justify-between text-[11px] text-neutral-400 not-italic">
-                    <span className="font-bold text-white">— Verified Pro.Fit Athlete</span>
-                    <span className="text-[#C6FF00] font-mono">{currentItem.duration} Protocol</span>
+                    <span className="font-bold text-white">— Verified Pro Fit Gym Member</span>
+                    <span className="text-[#D4AF37] font-mono">{currentItem.duration} Protocol</span>
                   </div>
                 </div>
 
-                {/* The Pro.Fit Methodology Blueprint */}
+                {/* The Pro Fit Gym Methodology Blueprint */}
                 <div className="space-y-2">
                   <div className="flex items-center gap-1.5">
-                    <Zap className="w-3.5 h-3.5 text-[#C6FF00]" />
+                    <Zap className="w-3.5 h-3.5 text-[#D4AF37]" />
                     <span className="text-xs font-black uppercase tracking-wider text-white">
-                      The Pro.Fit Methodology Used:
+                      The Pro Fit Methodology Used:
                     </span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {currentItem.methodologyNotes.map((note, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs text-neutral-300">
-                        <CheckCircle className="w-3.5 h-3.5 text-[#C6FF00] shrink-0 mt-0.5" />
+                        <CheckCircle className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 mt-0.5" />
                         <span className="leading-tight">{note}</span>
                       </div>
                     ))}
@@ -281,7 +281,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
                   href={getWhatsAppLink(whatsappMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:flex-1 py-3.5 px-6 rounded-full bg-[#C6FF00] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#b0e600] transition-all cursor-pointer shadow-[0_0_20px_rgba(198,255,0,0.35)] active:scale-95"
+                  className="w-full sm:flex-1 py-3.5 px-6 rounded-full bg-[#D4AF37] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#c59e2b] transition-all cursor-pointer shadow-[0_0_20px_rgba(212,175,55,0.35)] active:scale-95"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>Start Similar Transformation</span>
@@ -293,7 +293,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
                   onClick={onOpenBooking}
                   className="w-full sm:w-auto py-3.5 px-6 rounded-full border border-white/20 hover:border-white/50 bg-black/40 hover:bg-black/80 text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer text-center"
                 >
-                  Free Consultation
+                  Free Trial
                 </button>
               </div>
             </div>
@@ -310,7 +310,7 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
               aria-label={`Go to slide ${idx + 1}: ${item.name}`}
               className={`h-2.5 rounded-full transition-all cursor-pointer ${
                 currentIndex === idx
-                  ? 'w-10 bg-[#C6FF00] shadow-[0_0_10px_rgba(198,255,0,0.5)]'
+                  ? 'w-10 bg-[#D4AF37] shadow-[0_0_10px_rgba(212,175,55,0.5)]'
                   : 'w-2.5 bg-[#2B2B2B] hover:bg-neutral-500'
               }`}
             />

@@ -3,7 +3,7 @@ import { Plus, X } from 'lucide-react';
 import { FAQS } from '../data/content';
 
 export const FAQ: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(1); // Open 2nd item by default to mirror reference
+  const [openIndex, setOpenIndex] = useState<number | null>(0); // Open 1st item by default
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -14,11 +14,11 @@ export const FAQ: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C6FF00] inline-block mb-3">
-            FAQ
+          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#D4AF37] inline-block mb-3">
+            FREQUENTLY ASKED QUESTIONS
           </span>
           <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white tracking-tight leading-[0.95]">
-            ANSWERS FOR SERIOUS FITNESS GOALS
+            ANSWERS ABOUT PRO FIT GYM
           </h2>
         </div>
 
@@ -50,11 +50,11 @@ export const FAQ: React.FC = () => {
                     {faq.question}
                   </span>
 
-                  {/* Toggle Indicator Button matching reference */}
+                  {/* Toggle Indicator Button */}
                   <span
                     className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
                       isOpen
-                        ? 'bg-[#C6FF00] text-black shadow-[0_0_12px_rgba(198,255,0,0.35)] rotate-90'
+                        ? 'bg-[#D4AF37] text-black shadow-[0_0_12px_rgba(212,175,55,0.35)] rotate-90'
                         : 'bg-[#222222] text-neutral-300'
                     }`}
                   >

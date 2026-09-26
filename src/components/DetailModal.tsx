@@ -35,7 +35,7 @@ export const DetailModal: React.FC<DetailModalProps> = ({
         {service && (
           <div className="space-y-6">
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#C6FF00] block mb-1">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF37] block mb-1">
                 SERVICE OVERVIEW
               </span>
               <h3 className="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
@@ -48,7 +48,7 @@ export const DetailModal: React.FC<DetailModalProps> = ({
             </p>
 
             <div className="p-4 rounded-2xl bg-[#1A1A1A] border border-[#2B2B2B]">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#C6FF00] uppercase mb-1">
+              <div className="flex items-center gap-2 text-xs font-bold text-[#D4AF37] uppercase mb-1">
                 <Clock className="w-4 h-4" />
                 <span>Session Timings & Format</span>
               </div>
@@ -62,7 +62,7 @@ export const DetailModal: React.FC<DetailModalProps> = ({
               <ul className="space-y-2.5">
                 {service.benefits.map((b, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-200">
-                    <CheckCircle2 className="w-4 h-4 text-[#C6FF00] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                     <span>{b}</span>
                   </li>
                 ))}
@@ -71,10 +71,10 @@ export const DetailModal: React.FC<DetailModalProps> = ({
 
             <div className="pt-4 border-t border-[#262626]">
               <a
-                href={getWhatsAppLink(`Hi Zulqarnain, I want to book or ask about ${service.title}.`)}
+                href={getWhatsAppLink(`Hi Pro Fit Gym, I want to book or ask about ${service.title} in North Nazimabad.`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 px-6 rounded-full bg-[#C6FF00] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#b0e600] transition-all cursor-pointer shadow-[0_0_20px_rgba(198,255,0,0.35)]"
+                className="w-full py-3.5 px-6 rounded-full bg-[#D4AF37] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#c59e2b] transition-all cursor-pointer shadow-[0_0_20px_rgba(212,175,55,0.35)]"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>INQUIRE VIA WHATSAPP</span>
@@ -94,13 +94,13 @@ export const DetailModal: React.FC<DetailModalProps> = ({
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute top-4 right-4 bg-black/85 px-4 py-1.5 rounded-full border border-white/10 font-display text-lg font-bold text-[#C6FF00]">
+              <div className="absolute top-4 right-4 bg-black/85 px-4 py-1.5 rounded-full border border-white/10 font-display text-lg font-bold text-[#D4AF37]">
                 {pkg.price}
               </div>
             </div>
 
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#C6FF00] block mb-1">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF37] block mb-1">
                 {pkg.category}
               </span>
               <h3 className="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
@@ -114,10 +114,10 @@ export const DetailModal: React.FC<DetailModalProps> = ({
 
             <div className="pt-4 border-t border-[#262626]">
               <a
-                href={getWhatsAppLink(`Hi Zulqarnain, I am interested in the ${pkg.title} (${pkg.price}).`)}
+                href={getWhatsAppLink(`Hi Pro Fit Gym, I am interested in the ${pkg.title} (${pkg.price}) at North Nazimabad.`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 px-6 rounded-full bg-[#C6FF00] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#b0e600] transition-all cursor-pointer shadow-[0_0_20px_rgba(198,255,0,0.35)]"
+                className="w-full py-3.5 px-6 rounded-full bg-[#D4AF37] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#c59e2b] transition-all cursor-pointer shadow-[0_0_20px_rgba(212,175,55,0.35)]"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>BOOK THIS PACKAGE ON WHATSAPP</span>
@@ -138,7 +138,7 @@ export const DetailModal: React.FC<DetailModalProps> = ({
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 text-xs font-bold text-[#C6FF00] uppercase tracking-wider">
+              <div className="absolute bottom-4 left-4 text-xs font-bold text-[#D4AF37] uppercase tracking-wider">
                 {article.author} · {article.date} · {article.readTime}
               </div>
             </div>
@@ -162,11 +162,11 @@ export const DetailModal: React.FC<DetailModalProps> = ({
           </div>
         )}
 
-        {/* 4. ABOUT ZULQARNAIN MODAL */}
+        {/* 4. ABOUT PRO FIT GYM & FOUNDER MODAL */}
         {isAboutOpen && (
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row gap-5 items-center">
-              <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-[#C6FF00] shrink-0 bg-neutral-900 shadow-xl">
+              <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-[#D4AF37] shrink-0 bg-neutral-900 shadow-xl">
                 <img
                   src={ASSETS.zulqarnain}
                   alt={FOUNDER_DATA.name}
@@ -175,21 +175,21 @@ export const DetailModal: React.FC<DetailModalProps> = ({
                 />
               </div>
               <div className="text-center sm:text-left">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-[#C6FF00] block mb-1">
-                  MASTER TRAINER & FOUNDER
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF37] block mb-1">
+                  VISIONARY & FOUNDER
                 </span>
                 <h3 className="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
                   {FOUNDER_DATA.name}
                 </h3>
                 <p className="text-xs sm:text-sm text-neutral-400 font-medium">
-                  {FOUNDER_DATA.title} · Karachi
+                  {FOUNDER_DATA.title} · Block A, North Nazimabad, Karachi
                 </p>
               </div>
             </div>
 
             {/* Vision Callout Box */}
-            <div className="p-5 rounded-2xl bg-gradient-to-r from-[#1C1C1C] to-[#141414] border-l-4 border-l-[#C6FF00] border-y border-r border-[#2A2A2A]">
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#C6FF00] block mb-1">
+            <div className="p-5 rounded-2xl bg-gradient-to-r from-[#1C1C1C] to-[#141414] border-l-4 border-l-[#D4AF37] border-y border-r border-[#2A2A2A]">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#D4AF37] block mb-1">
                 {FOUNDER_DATA.visionHeading}
               </span>
               <p className="font-display text-xl sm:text-2xl text-white font-black uppercase tracking-tight">
@@ -205,23 +205,23 @@ export const DetailModal: React.FC<DetailModalProps> = ({
 
             <div className="grid grid-cols-2 gap-3">
               <div className="p-4 rounded-2xl bg-[#1A1A1A] border border-[#2B2B2B]">
-                <span className="font-display text-2xl sm:text-3xl font-black text-[#C6FF00] block">8+ YEARS</span>
-                <span className="text-xs text-neutral-400">Elite Coaching Experience</span>
+                <span className="font-display text-2xl sm:text-3xl font-black text-[#D4AF37] block">4.7★ / 31 REVIEWS</span>
+                <span className="text-xs text-neutral-400">Verified Google Rating</span>
               </div>
               <div className="p-4 rounded-2xl bg-[#1A1A1A] border border-[#2B2B2B]">
-                <span className="font-display text-2xl sm:text-3xl font-black text-[#C6FF00] block">350+</span>
-                <span className="text-xs text-neutral-400">Verified Transformations</span>
+                <span className="font-display text-2xl sm:text-3xl font-black text-[#D4AF37] block">7AM – 2AM</span>
+                <span className="text-xs text-neutral-400">Extended Operating Hours</span>
               </div>
             </div>
 
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2">
-                Specializations & Credentials:
+                Specializations & Facility Features:
               </h4>
               <ul className="space-y-2 text-xs sm:text-sm text-neutral-300">
                 {FOUNDER_DATA.credentials.map((cred, idx) => (
                   <li key={idx} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#C6FF00] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0" />
                     <span>{cred}</span>
                   </li>
                 ))}
@@ -230,13 +230,13 @@ export const DetailModal: React.FC<DetailModalProps> = ({
 
             <div className="pt-4 border-t border-[#262626]">
               <a
-                href={getWhatsAppLink('Hi Zulqarnain, I read your vision for Pro.Fit and I want to train with you!')}
+                href={getWhatsAppLink('Hi Pro Fit Gym, I want to inquire about memberships and book a free trial at North Nazimabad!')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 px-6 rounded-full bg-[#C6FF00] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#b0e600] transition-all cursor-pointer shadow-[0_0_20px_rgba(198,255,0,0.35)]"
+                className="w-full py-3.5 px-6 rounded-full bg-[#D4AF37] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#c59e2b] transition-all cursor-pointer shadow-[0_0_20px_rgba(212,175,55,0.35)]"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>TRAIN WITH ZULQARNAIN (WHATSAPP)</span>
+                <span>CONNECT WITH PRO FIT GYM (WHATSAPP)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
