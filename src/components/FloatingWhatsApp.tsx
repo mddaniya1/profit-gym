@@ -1,33 +1,39 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { getWhatsAppLink } from '../data/content';
 
 export const WhatsAppIcon: React.FC<{ className?: string }> = ({ className = 'w-full h-full' }) => (
   <svg
-    viewBox="0 0 24 24"
+    viewBox="0 0 32 32"
     className={className}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <defs>
-      <linearGradient id="waRealGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#4EED6B" />
+      <linearGradient id="waBubbleGrad" x1="16" y1="2" x2="16" y2="30" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#41E76D" />
         <stop offset="45%" stopColor="#25D366" />
         <stop offset="100%" stopColor="#1EBE5D" />
       </linearGradient>
     </defs>
-    {/* Real WhatsApp Squircle Background */}
-    <rect width="24" height="24" rx="5.5" fill="url(#waRealGradient)" />
 
-    {/* White Speech Bubble Outline */}
+    {/* Outer subtle white rim / halo exactly matching icone-removebg-preview.png */}
     <path
+      d="M16 1.8C8.158 1.8 1.8 8.158 1.8 16c0 2.82.826 5.45 2.25 7.66L1.8 30.2l6.85-1.79A14.15 14.15 0 0016 30.2c7.842 0 14.2-6.358 14.2-14.2S23.842 1.8 16 1.8z"
       fill="#FFFFFF"
-      d="M12.004 2C6.479 2 2 6.479 2 12.004c0 1.954.563 3.777 1.536 5.323L2 22l4.821-1.492c1.494.887 3.238 1.401 5.183 1.401 5.525 0 10.004-4.479 10.004-10.005C22.008 6.479 17.529 2 12.004 2zm0 18.067c-1.688 0-3.253-.492-4.577-1.339l-.328-.208-3.042.942.973-2.924-.225-.339A8.093 8.093 0 0 1 3.937 12c0-4.455 3.618-8.073 8.067-8.073 4.456 0 8.074 3.618 8.074 8.073 0 4.456-3.618 8.067-8.074 8.067z"
+      fillOpacity="0.95"
     />
 
-    {/* White Telephone Handset Inside */}
+    {/* Vibrant WhatsApp Green Speech Bubble Body */}
+    <path
+      d="M16 3C8.82 3 3 8.82 3 16c0 2.58.74 4.98 2.03 7.02L3.2 28.8l6.02-1.57A12.94 12.94 0 0016 29c7.18 0 13-5.82 13-13S23.18 3 16 3z"
+      fill="url(#waBubbleGrad)"
+    />
+
+    {/* Crisp White Telephone Handset in the center */}
     <path
       fill="#FFFFFF"
-      d="M17.472 14.382c-.301-.15-1.767-.867-2.04-.966-.271-.101-.469-.15-.668.149-.197.299-.769.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.652-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+      d="M22.062 18.723c-.347-.174-2.05-1.012-2.368-1.127-.318-.116-.549-.174-.78.174-.231.348-.896 1.127-1.099 1.358-.202.231-.405.26-.752.087-.347-.174-1.464-.539-2.788-1.72-1.03-0.919-1.725-2.054-1.928-2.402-.202-.347-.022-.535.152-.708.156-.156.347-.405.52-.607.174-.202.231-.347.347-.579.116-.231.058-.434-.029-.607-.087-.174-.78-1.88-1.069-2.574-.282-.676-.569-.584-.78-.595l-.666-.012c-.231 0-.607.087-.925.434-.318.347-1.214 1.186-1.214 2.893 0 1.706 1.243 3.355 1.416 3.586.174.231 2.444 3.732 5.921 5.234.827.357 1.473.57 1.976.73.83.264 1.586.227 2.183.138.666-.099 2.05-.838 2.339-1.648.289-.81.289-1.504.202-1.648-.087-.145-.318-.231-.666-.405z"
     />
   </svg>
 );
@@ -71,30 +77,34 @@ export const FloatingWhatsApp: React.FC = () => {
         </div>
       </a>
 
-      {/* Real Floating WhatsApp Launcher Button */}
-      <a
+      {/* Real Floating WhatsApp Circular Launcher Button */}
+      <motion.a
         href={getWhatsAppLink(defaultMessage)}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Open WhatsApp chat with Pro Fit Gym"
-        className="relative group block w-14 h-14 sm:w-16 sm:h-16 rounded-[20px] sm:rounded-[22px] transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-[0_10px_30px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.7)]"
+        animate={{ y: [0, -6, 0] }}
+        transition={{ repeat: Infinity, duration: 3.2, ease: 'easeInOut' }}
+        whileHover={{ scale: 1.15 }}
+        whileTap={{ scale: 0.95 }}
+        className="relative group block w-14 h-14 sm:w-16 sm:h-16 rounded-full transition-shadow duration-300 shadow-[0_10px_30px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_45px_rgba(37,211,102,0.75)]"
       >
         {/* Glow halo */}
-        <span className="absolute -inset-1 rounded-[22px] sm:rounded-[24px] bg-[#25D366]/30 blur-md group-hover:bg-[#25D366]/50 transition-all pointer-events-none" />
+        <span className="absolute -inset-1.5 rounded-full bg-[#25D366]/35 blur-lg group-hover:bg-[#25D366]/55 transition-all pointer-events-none" />
 
         {/* WhatsApp Icon */}
-        <div className="relative w-full h-full overflow-hidden rounded-[20px] sm:rounded-[22px] ring-1 ring-white/20">
-          <WhatsAppIcon className="w-full h-full filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]" />
+        <div className="relative w-full h-full flex items-center justify-center filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)]">
+          <WhatsAppIcon className="w-full h-full" />
         </div>
 
         {/* Notification Ping Badge */}
-        <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4">
+        <span className="absolute -top-1 -right-1 flex h-4 w-4">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75" />
           <span className="relative inline-flex rounded-full h-4 w-4 bg-[#25D366] border-2 border-[#0D0D0D] items-center justify-center text-[8px] font-black text-black">
             1
           </span>
         </span>
-      </a>
+      </motion.a>
     </aside>
   );
 };

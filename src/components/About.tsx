@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { ArrowRight, Star, CheckCircle2, Clock, MapPin } from 'lucide-react';
 import { ASSETS, CONTACT_INFO, FOUNDER_DATA } from '../data/content';
 
@@ -11,21 +12,36 @@ export const About: React.FC<AboutProps> = ({ onOpenAboutModal }) => {
     <section id="about" className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-12 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 sm:mb-16"
+        >
           <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C6FF00] inline-block mb-3">
             ABOUT US
           </span>
           <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white tracking-tight leading-[0.95] max-w-3xl">
             ONE EXTRAORDINARY ROOF FOR EVERY GOAL
           </h2>
-        </div>
+        </motion.div>
 
         {/* 2-Column Content: Left Details & Right Stacked Images */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Proof Metrics, Intro, & CTA */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="lg:col-span-5 flex flex-col justify-between space-y-8"
+          >
             {/* Rating / Social Proof Block matching Reference: 4.7★ / 31 Google reviews */}
-            <div className="p-6 sm:p-7 rounded-2xl sm:rounded-3xl bg-[#111111] border border-[#222222] shadow-xl inline-flex flex-col sm:flex-row sm:items-center gap-6">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="p-6 sm:p-7 rounded-2xl sm:rounded-3xl bg-[#111111] border border-[#222222] shadow-xl inline-flex flex-col sm:flex-row sm:items-center gap-6"
+            >
               <div>
                 <div className="font-display text-5xl sm:text-6xl font-black text-white leading-none">
                   4.7
@@ -75,7 +91,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAboutModal }) => {
                   Verified Google Rating
                 </span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Paragraph Bio & Philosophy */}
             <div className="space-y-4">
@@ -113,26 +129,38 @@ export const About: React.FC<AboutProps> = ({ onOpenAboutModal }) => {
 
             {/* Action Button */}
             <div>
-              <button
+              <motion.button
                 onClick={onOpenAboutModal}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-3 bg-[#C6FF00] text-black font-extrabold text-xs tracking-wider uppercase px-7 py-3.5 rounded-full hover:bg-[#b5ea00] hover:shadow-[0_0_20px_rgba(198,255,0,0.35)] transition-all cursor-pointer group"
               >
                 <span>MORE ABOUT PRO FIT GYM</span>
                 <span className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-[#C6FF00] group-hover:translate-x-0.5 transition-transform">
                   <ArrowRight className="w-3 h-3" />
                 </span>
-              </button>
+              </motion.button>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Stacked / Offset Gym Facility Photos */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 relative">
+          {/* Right Column: Stacked / Offset Gym Facility Photos with hover zoom */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 relative"
+          >
             {/* Photo 1: Gym Studio & Weights */}
-            <div className="group relative rounded-3xl overflow-hidden border border-[#222222] bg-[#111111] aspect-[4/5] shadow-2xl">
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.3 }}
+              className="group relative rounded-3xl overflow-hidden border border-[#222222] bg-[#111111] aspect-[4/5] shadow-2xl"
+            >
               <img
                 src={ASSETS.gymStudio}
                 alt="Pro Fit Gym weights floor in North Nazimabad"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-95"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-95"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -144,14 +172,18 @@ export const About: React.FC<AboutProps> = ({ onOpenAboutModal }) => {
                   STRENGTH & PLATE-LOADED ARENA
                 </h4>
               </div>
-            </div>
+            </motion.div>
 
             {/* Photo 2: Aerobics & Zumba Studio (Offset downward slightly on larger screens) */}
-            <div className="group relative rounded-3xl overflow-hidden border border-[#222222] bg-[#111111] aspect-[4/5] shadow-2xl sm:translate-y-8">
+            <motion.div
+              whileHover={{ y: 2 }}
+              transition={{ duration: 0.3 }}
+              className="group relative rounded-3xl overflow-hidden border border-[#222222] bg-[#111111] aspect-[4/5] shadow-2xl sm:translate-y-8"
+            >
               <img
                 src={ASSETS.gymAerobics}
                 alt="Aerobics and cycling studio at Pro Fit Gym"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-95"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-95"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -163,8 +195,8 @@ export const About: React.FC<AboutProps> = ({ onOpenAboutModal }) => {
                   ZUMBA, AEROBICS & CYCLING
                 </h4>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

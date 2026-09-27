@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { motion, useScroll, useSpring } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -34,8 +35,22 @@ export default function App() {
   const [selectedArticle, setSelectedArticle] = useState<ArticleItem | null>(null);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
 
+  // Global scroll progress indicator for full-page animation
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   return (
     <div className="min-h-screen bg-[#0D0D0D] text-[#F5F5F5] font-sans relative selection:bg-[#C6FF00] selection:text-black">
+      {/* Top Reading / Scroll Progress Bar */}
+      <motion.div
+        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#C6FF00] via-[#84cc16] to-[#25D366] origin-left z-50 shadow-[0_0_12px_rgba(198,255,0,0.85)] pointer-events-none"
+      />
+
       {/* Outer frame neon lime contour line accents */}
       <div className="fixed inset-0 pointer-events-none z-40 border border-[#C6FF00]/15 rounded-2xl m-1 sm:m-2" />
 

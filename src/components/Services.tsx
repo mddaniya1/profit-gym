@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import { motion } from 'motion/react';
 import { ArrowRight, Dumbbell, Activity, Music, Bike, Apple } from 'lucide-react';
 import { SERVICES, ServiceItem, ASSETS } from '../data/content';
 
@@ -7,27 +8,6 @@ interface ServicesProps {
 }
 
 export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const getIcon = (type: string, isHighlighted: boolean) => {
     const iconClass = isHighlighted ? 'text-black' : 'text-[#C6FF00]';
     switch (type) {
@@ -49,15 +29,16 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   return (
     <section
       id="services"
-      ref={sectionRef}
       className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-[#0D0D0D]"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div
-          className={`text-center max-w-3xl mx-auto mb-14 sm:mb-20 transition-all duration-700 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-14 sm:mb-20"
         >
           <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C6FF00] inline-block mb-3">
             OUR SERVICES & CLASSES
@@ -68,26 +49,26 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
           <p className="text-sm sm:text-base text-neutral-400 font-medium mt-3">
             North Nazimabad's full-spectrum facility: heavy strength arena, high-energy group studios & certified coaching.
           </p>
-        </div>
+        </motion.div>
 
         {/* 5 Service Cards + 1 Showcase Card in a balanced 3-column grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
           {SERVICES.map((service, index) => {
             const isHighlight = service.highlighted;
-            const staggerDelayMs = (index + 1) * 120;
 
             return (
-              <div
+              <motion.div
                 key={service.id}
                 onClick={() => onSelectService(service)}
-                style={{ transitionDelay: `${staggerDelayMs}ms` }}
-                className={`group relative rounded-3xl p-7 sm:p-8 flex flex-col justify-between cursor-pointer transition-all duration-700 ease-out hover:delay-0 ${
-                  isVisible
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-10'
-                } ${
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`group relative rounded-3xl p-7 sm:p-8 flex flex-col justify-between cursor-pointer transition-colors ${
                   isHighlight
-                    ? 'bg-[#C6FF00] text-black shadow-[0_0_35px_rgba(198,255,0,0.35)] hover:scale-[1.02]'
+                    ? 'bg-[#C6FF00] text-black shadow-[0_0_35px_rgba(198,255,0,0.35)]'
                     : 'bg-[#111111] text-white border border-[#222222] hover:border-[#383838] hover:bg-[#161616]'
                 }`}
               >
@@ -132,23 +113,23 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 
           {/* 6th Slot: Featured Showcase Card */}
-          <div
-            style={{ transitionDelay: `${6 * 120}ms` }}
-            className={`relative rounded-3xl overflow-hidden border border-[#222222] bg-[#111111] min-h-[320px] group transition-all duration-700 ease-out hover:delay-0 ${
-              isVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-10'
-            }`}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: 5 * 0.08 }}
+            whileHover={{ y: -8, scale: 1.02 }}
+            className="relative rounded-3xl overflow-hidden border border-[#222222] bg-[#111111] min-h-[320px] group transition-all"
           >
             <img
               src={ASSETS.gymStudio}
               alt="Pro Fit Gym North Nazimabad floor"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 contrast-110"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-90 contrast-110"
               referrerPolicy="no-referrer"
             />
             {/* Scrim Overlay */}
@@ -166,7 +147,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 7:00 AM – 2:00 AM daily. Dedicated ladies slots, imported machinery & certified trainers in North Nazimabad.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

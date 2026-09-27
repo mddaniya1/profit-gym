@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, ArrowRight, Star, Quote } from 'lucide-react';
 import { TESTIMONIALS } from '../data/content';
 
@@ -24,7 +25,13 @@ export const Testimonials: React.FC = () => {
     <section id="testimonials" className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-[#0D0D0D]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header with Carousel Controls matching Reference */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16"
+        >
           <div>
             <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C6FF00] inline-block mb-3">
               MEMBER EXPERIENCES
@@ -36,78 +43,95 @@ export const Testimonials: React.FC = () => {
 
           {/* Navigation Arrows */}
           <div className="flex items-center gap-3">
-            <button
+            <motion.button
               onClick={prevSlide}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               aria-label="Previous testimonial"
-              className="w-12 h-12 rounded-full border border-[#222222] bg-[#111111] flex items-center justify-center text-white hover:border-[#C6FF00] hover:text-[#C6FF00] transition-all cursor-pointer active:scale-95"
+              className="w-12 h-12 rounded-full border border-[#222222] bg-[#111111] flex items-center justify-center text-white hover:border-[#C6FF00] hover:text-[#C6FF00] transition-all cursor-pointer"
             >
               <ArrowLeft className="w-5 h-5" />
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               onClick={nextSlide}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               aria-label="Next testimonial"
-              className="w-12 h-12 rounded-full bg-[#C6FF00] flex items-center justify-center text-black hover:bg-[#b5ea00] transition-all cursor-pointer active:scale-95 shadow-[0_0_15px_rgba(198,255,0,0.3)]"
+              className="w-12 h-12 rounded-full bg-[#C6FF00] flex items-center justify-center text-black hover:bg-[#b5ea00] transition-all cursor-pointer shadow-[0_0_15px_rgba(198,255,0,0.3)]"
             >
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Carousel Grid: Featured Large Card + 2 Preview Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
-          {/* Main Featured Testimonial Card */}
-          <div className="lg:col-span-6 rounded-3xl p-8 sm:p-10 bg-[#111111] border border-[#222222] shadow-2xl flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-6 right-6 text-neutral-800 pointer-events-none">
-              <Quote className="w-20 h-20 opacity-30" />
-            </div>
+          {/* Main Featured Testimonial Card with AnimatePresence */}
+          <div className="lg:col-span-6 rounded-3xl bg-[#111111] border border-[#222222] shadow-2xl relative overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTestimonial.id}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                className="p-8 sm:p-10 flex flex-col justify-between h-full relative"
+              >
+                <div className="absolute top-6 right-6 text-neutral-800 pointer-events-none">
+                  <Quote className="w-20 h-20 opacity-30" />
+                </div>
 
-            <div className="relative z-10">
-              {/* Highlight Stat Tag */}
-              <div className="inline-block bg-[#C6FF00]/15 text-[#C6FF00] border border-[#C6FF00]/30 text-xs font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-6">
-                {activeTestimonial.highlightStat}
-              </div>
+                <div className="relative z-10">
+                  {/* Highlight Stat Tag */}
+                  <div className="inline-block bg-[#C6FF00]/15 text-[#C6FF00] border border-[#C6FF00]/30 text-xs font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-6">
+                    {activeTestimonial.highlightStat}
+                  </div>
 
-              {/* Star Rating */}
-              <div className="flex items-center gap-1.5 text-[#C6FF00] mb-6">
-                {[...Array(activeTestimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[#C6FF00]" />
-                ))}
-              </div>
+                  {/* Star Rating */}
+                  <div className="flex items-center gap-1.5 text-[#C6FF00] mb-6">
+                    {[...Array(activeTestimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-[#C6FF00]" />
+                    ))}
+                  </div>
 
-              {/* Quote text */}
-              <p className="text-base sm:text-xl text-neutral-100 font-medium leading-relaxed mb-8">
-                "{activeTestimonial.quote}"
-              </p>
-            </div>
+                  {/* Quote text */}
+                  <p className="text-base sm:text-xl text-neutral-100 font-medium leading-relaxed mb-8">
+                    "{activeTestimonial.quote}"
+                  </p>
+                </div>
 
-            {/* Author Footer */}
-            <div className="flex items-center gap-4 pt-6 border-t border-[#222222]">
-              <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#C6FF00] shrink-0 bg-neutral-800">
-                <img
-                  src={activeTestimonial.image}
-                  alt={activeTestimonial.name}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div>
-                <h4 className="font-display text-xl sm:text-2xl text-white font-black uppercase tracking-tight">
-                  {activeTestimonial.name}
-                </h4>
-                <p className="text-xs sm:text-sm text-[#8E8E8E]">
-                  {activeTestimonial.role}
-                </p>
-              </div>
-            </div>
+                {/* Author Footer */}
+                <div className="flex items-center gap-4 pt-6 border-t border-[#222222] relative z-10">
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#C6FF00] shrink-0 bg-neutral-800">
+                    <img
+                      src={activeTestimonial.image}
+                      alt={activeTestimonial.name}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-display text-xl sm:text-2xl text-white font-black uppercase tracking-tight">
+                      {activeTestimonial.name}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-[#8E8E8E]">
+                      {activeTestimonial.role}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* 2 Preview / Side Testimonial Cards */}
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
             {previewItems.map((item, idx) => (
-              <div
+              <motion.div
                 key={item.id}
                 onClick={() => setCurrentIndex((currentIndex + idx + 1) % TESTIMONIALS.length)}
-                className="rounded-3xl p-6 sm:p-7 bg-[#141414] border border-[#222222] hover:border-[#383838] transition-all flex flex-col justify-between cursor-pointer group shadow-lg hover:-translate-y-1"
+                whileHover={{ y: -6, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="rounded-3xl p-6 sm:p-7 bg-[#141414] border border-[#222222] hover:border-[#383838] transition-colors flex flex-col justify-between cursor-pointer group shadow-lg"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -144,7 +168,7 @@ export const Testimonials: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

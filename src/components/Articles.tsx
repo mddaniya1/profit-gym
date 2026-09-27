@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { ARTICLES, ArticleItem } from '../data/content';
 
@@ -11,7 +12,13 @@ export const Articles: React.FC<ArticlesProps> = ({ onSelectArticle }) => {
     <section id="articles" className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-[#0D0D0D]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16"
+        >
           <div>
             <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C6FF00] inline-block mb-3">
               FITNESS TIPS
@@ -22,32 +29,40 @@ export const Articles: React.FC<ArticlesProps> = ({ onSelectArticle }) => {
           </div>
 
           <div className="shrink-0">
-            <button
+            <motion.button
               onClick={() => onSelectArticle(ARTICLES[0])}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2.5 bg-[#C6FF00] text-black font-extrabold text-xs tracking-wider uppercase px-6 py-3 rounded-full hover:bg-[#b5ea00] hover:shadow-[0_0_20px_rgba(198,255,0,0.35)] transition-all cursor-pointer group"
             >
               <span>VIEW ALL ARTICLES</span>
-              <span className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-[#C6FF00] group-hover:translate-x-0.5 transition-transform">
+              <span className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-[#C6FF00]">
                 <ArrowRight className="w-3.5 h-3.5" />
               </span>
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
         {/* 3 Article Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {ARTICLES.map((article) => (
-            <div
+          {ARTICLES.map((article, idx) => (
+            <motion.div
               key={article.id}
               onClick={() => onSelectArticle(article)}
-              className="group rounded-3xl overflow-hidden bg-[#111111] border border-[#222222] hover:border-[#383838] transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-1 shadow-xl"
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="group rounded-3xl overflow-hidden bg-[#111111] border border-[#222222] hover:border-[#383838] transition-colors flex flex-col justify-between cursor-pointer shadow-xl"
             >
               {/* Image with Tag & Date Overlay */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1D1D1D]">
                 <img
                   src={article.image}
                   alt={article.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-90"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
@@ -81,7 +96,7 @@ export const Articles: React.FC<ArticlesProps> = ({ onSelectArticle }) => {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

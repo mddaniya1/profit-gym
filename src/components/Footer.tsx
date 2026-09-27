@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { MessageCircle, Mail, MapPin, Instagram, Youtube, Facebook, ArrowUp, Clock } from 'lucide-react';
 import { CONTACT_INFO, getWhatsAppLink } from '../data/content';
 
@@ -11,7 +12,13 @@ export const Footer: React.FC = () => {
     <footer id="contact" className="relative bg-[#0D0D0D] border-t border-[#1A1A1A] pt-16 sm:pt-24 pb-8 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 3 Main Columns matching reference */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12 pb-16 border-b border-[#1A1A1A]">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12 pb-16 border-b border-[#1A1A1A]"
+        >
           {/* Column 1: Quick Links */}
           <div className="md:col-span-4 space-y-4">
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#707070] block">
@@ -177,7 +184,7 @@ export const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Legal & Back to Top */}
         <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-neutral-400">
@@ -193,21 +200,29 @@ export const Footer: React.FC = () => {
             <span>© 2026 Pro Fit Gym. All rights reserved.</span>
           </div>
 
-          <button
+          <motion.button
             onClick={scrollToTop}
+            whileHover={{ scale: 1.08, y: -2 }}
+            whileTap={{ scale: 0.95 }}
             className="flex items-center gap-1.5 text-neutral-400 hover:text-[#C6FF00] transition-colors cursor-pointer"
           >
             <span>BACK TO TOP</span>
             <ArrowUp className="w-3.5 h-3.5" />
-          </button>
+          </motion.button>
         </div>
 
         {/* GIANT OVERSIZED WORDMARK AT BOTTOM */}
-        <div className="pt-4 pb-2 text-center overflow-hidden select-none pointer-events-none">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="pt-4 pb-2 text-center overflow-hidden select-none pointer-events-none"
+        >
           <h1 className="font-display text-[15vw] font-black uppercase tracking-tighter leading-none text-[#141414] hover:text-[#1A1A1A] transition-colors">
             PRO FIT <span className="text-[#C6FF00]/35">GYM</span>
           </h1>
-        </div>
+        </motion.div>
 
         {/* Bottom micro branding */}
         <div className="flex items-center justify-between pt-2 text-[10px] text-neutral-400 font-semibold tracking-wider uppercase">

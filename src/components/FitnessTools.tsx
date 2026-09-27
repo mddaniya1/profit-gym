@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   Calculator,
   Flame,
@@ -169,7 +170,13 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking }) => 
     <section id="tools" className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-[#0D0D0D]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1C1C1C] border border-[#2B2B2B] text-xs font-extrabold uppercase tracking-widest text-[#C6FF00] mb-3">
             <Calculator className="w-3.5 h-3.5" />
             <span>DATA-DRIVEN FITNESS TOOLS</span>
@@ -180,10 +187,16 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking }) => 
           <p className="text-sm sm:text-base text-neutral-400 font-medium mt-3">
             Precision body composition metrics and daily energy expenditure calibrated using proven sports biomechanics formulas.
           </p>
-        </div>
+        </motion.div>
 
         {/* Main Tool Container */}
-        <div className="bg-[#141414] border border-[#262626] rounded-3xl sm:rounded-[36px] p-6 sm:p-10 shadow-2xl">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.65, delay: 0.1 }}
+          className="bg-[#141414] border border-[#262626] rounded-3xl sm:rounded-[36px] p-6 sm:p-10 shadow-2xl"
+        >
           {/* Top Controls: Tabs & Unit Toggle */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-[#242424]">
             {/* Tool Tabs */}
@@ -600,7 +613,7 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking }) => 
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

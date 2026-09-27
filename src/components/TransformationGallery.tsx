@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   ChevronLeft,
   ChevronRight,
@@ -141,8 +142,16 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
         </div>
 
         {/* Active Carousel Card */}
-        <div className="bg-[#111111] border border-[#222222] rounded-3xl sm:rounded-[36px] overflow-hidden shadow-2xl transition-all duration-300">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+        <div className="bg-[#111111] border border-[#222222] rounded-3xl sm:rounded-[36px] overflow-hidden shadow-2xl">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentItem.id}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.35, ease: 'easeInOut' }}
+              className="grid grid-cols-1 lg:grid-cols-12 items-stretch"
+            >
             {/* Left: High-Contrast Before & After Photo Frame */}
             <div className="lg:col-span-6 relative bg-black flex flex-col justify-center min-h-[380px] sm:min-h-[460px] lg:min-h-[560px] overflow-hidden group">
               <img
@@ -295,8 +304,9 @@ export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
                 </button>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
         {/* Carousel Indicators / Thumbnails Row */}
         <div className="flex justify-center items-center gap-2.5 mt-8">

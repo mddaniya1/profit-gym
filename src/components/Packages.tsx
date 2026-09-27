@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { PACKAGES, PackageItem } from '../data/content';
 
@@ -11,7 +12,13 @@ export const Packages: React.FC<PackagesProps> = ({ onSelectPackage }) => {
     <section id="packages" className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-[#0D0D0D]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header with Eyebrow, Headline, and View All Plans Button */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16"
+        >
           <div>
             <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C6FF00] inline-block mb-3">
               MEMBERSHIP PACKAGES
@@ -22,32 +29,40 @@ export const Packages: React.FC<PackagesProps> = ({ onSelectPackage }) => {
           </div>
 
           <div className="shrink-0">
-            <a
+            <motion.a
               href="#pricing"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2.5 bg-[#C6FF00] text-black font-extrabold text-xs tracking-wider uppercase px-6 py-3 rounded-full hover:bg-[#b5ea00] hover:shadow-[0_0_20px_rgba(198,255,0,0.35)] transition-all group"
             >
               <span>VIEW MEMBERSHIP TIERS</span>
-              <span className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-[#C6FF00] group-hover:translate-x-0.5 transition-transform">
+              <span className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-[#C6FF00]">
                 <ArrowRight className="w-3 h-3" />
               </span>
-            </a>
+            </motion.a>
           </div>
-        </div>
+        </motion.div>
 
         {/* 3-Card Horizontal Row matching reference product cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {PACKAGES.map((pkg) => (
-            <div
+          {PACKAGES.map((pkg, idx) => (
+            <motion.div
               key={pkg.id}
               onClick={() => onSelectPackage(pkg)}
-              className="group relative rounded-3xl overflow-hidden bg-[#111111] border border-[#222222] hover:border-[#383838] transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-1 shadow-xl"
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative rounded-3xl overflow-hidden bg-[#111111] border border-[#222222] hover:border-[#383838] transition-colors flex flex-col justify-between cursor-pointer shadow-xl"
             >
               {/* Image Container with Price Badge */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1D1D1D]">
                 <img
                   src={pkg.image}
                   alt={pkg.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-95"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-95"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-80" />
@@ -82,7 +97,7 @@ export const Packages: React.FC<PackagesProps> = ({ onSelectPackage }) => {
                   <span className="text-[11px] text-neutral-500 font-medium">North Nazimabad</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
