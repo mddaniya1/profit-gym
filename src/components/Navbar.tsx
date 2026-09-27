@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Menu, X } from 'lucide-react';
 import { CONTACT_INFO, getWhatsAppLink } from '../data/content';
+import { ProFitIcon } from './ProFitIcon';
 
 interface NavbarProps {
   onOpenBooking: () => void;
@@ -20,12 +21,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
   return (
     <header className="sticky top-0 z-50 w-full px-4 sm:px-6 lg:px-8 pt-4 pb-2 bg-[#0D0D0D]/90 backdrop-blur-md transition-all">
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-5 sm:px-8 rounded-full border border-[#262626] bg-[#141414]/90 shadow-2xl">
-        {/* Brand Logo */}
-        <a href="#home" className="flex items-center gap-2 group">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] group-hover:scale-125 transition-transform" />
-          <span className="font-display text-2xl sm:text-3xl tracking-wider text-white font-black">
-            PRO FIT <span className="text-[#D4AF37]">GYM</span>
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-2.5 px-5 sm:px-8 rounded-full border border-[#262626] bg-[#141414]/90 shadow-2xl">
+        {/* Brand Logo: Uploaded icon logo mark (muscular arm/bicep + lightning bolt) + centered "PRO FIT" */}
+        <a
+          href="#home"
+          className="flex flex-col items-center justify-center group focus:outline-none select-none transition-transform hover:scale-105 active:scale-95 shrink-0"
+          aria-label="Pro Fit Gym Home"
+        >
+          <div className="relative flex items-center justify-center">
+            <ProFitIcon className="w-8 h-8 sm:w-9 sm:h-9 text-[#D4AF37] transition-all group-hover:brightness-110" />
+          </div>
+          <span className="text-[9px] sm:text-[10px] font-light tracking-[0.25em] text-[#F5F5F5] uppercase text-center mt-0.5 leading-none transition-colors group-hover:text-[#D4AF37]">
+            PRO FIT
           </span>
         </a>
 
@@ -70,7 +77,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden mt-3 p-5 rounded-3xl bg-[#141414] border border-[#262626] shadow-2xl flex flex-col gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
-          <div className="flex flex-col gap-3 py-2 border-b border-[#262626]">
+          {/* Mobile Header with Logo Mark */}
+          <div className="flex items-center justify-between pb-3 border-b border-[#262626]">
+            <div className="flex items-center gap-3">
+              <ProFitIcon className="w-8 h-8 text-[#D4AF37]" />
+              <div className="flex flex-col">
+                <span className="text-[11px] font-light tracking-[0.25em] text-[#F5F5F5] uppercase">
+                  PRO FIT
+                </span>
+                <span className="text-[10px] text-neutral-400 font-medium">North Nazimabad</span>
+              </div>
+            </div>
+            <span className="text-[10px] font-bold text-[#D4AF37] px-2.5 py-0.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20">
+              7AM – 2AM
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-3 py-1 border-b border-[#262626]">
             {navLinks.map((link) => (
               <a
                 key={link.label}

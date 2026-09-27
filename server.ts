@@ -78,9 +78,9 @@ app.post('/api/chat', async (req, res) => {
 
     // Determine model based on prompt instructions:
     // - gemini-3.1-pro-preview for particularly complex tasks
-    // - gemini-3.5-flash for general tasks
+    // - gemini-3.8-flash for general tasks
     // - gemini-3.1-flash-lite for tasks that should happen fast
-    let modelName = 'gemini-3.5-flash';
+    let modelName = 'gemini-3.8-flash';
     if (taskComplexity === 'fast') {
       modelName = 'gemini-3.1-flash-lite';
     } else if (taskComplexity === 'complex') {
@@ -111,6 +111,7 @@ app.post('/api/chat', async (req, res) => {
     });
 
     let response;
+    let actualModel = modelName;
     try {
       response = await ai.models.generateContent({
         model: modelName,
@@ -121,32 +122,50 @@ app.post('/api/chat', async (req, res) => {
         },
       });
     } catch (modelError: any) {
-      // If complex model fails (e.g. key permission), gracefully fall back to gemini-3.5-flash
-      if (modelName !== 'gemini-3.5-flash') {
-        console.warn(`Fallback to gemini-3.5-flash due to error on ${modelName}:`, modelError?.message);
+      console.warn(`Fallback on ${modelName} error:`, modelError?.message);
+      try {
+        actualModel = 'gemini-3.1-flash-lite';
         response = await ai.models.generateContent({
-          model: 'gemini-3.5-flash',
+          model: actualModel,
           contents,
           config: {
             systemInstruction,
             temperature: 0.7,
           },
         });
-      } else {
-        throw modelError;
+      } catch (fallbackError: any) {
+        console.warn('Fallback to gemini-flash-latest:', fallbackError?.message);
+        try {
+          actualModel = 'gemini-flash-latest';
+          response = await ai.models.generateContent({
+            model: actualModel,
+            contents,
+            config: {
+              systemInstruction,
+              temperature: 0.7,
+            },
+          });
+        } catch (allErrors: any) {
+          console.error('All Gemini model queries failed:', allErrors?.message);
+          return res.json({
+            text: "Welcome to Pro Fit Gym! Our certified trainers and coaches are ready for you on the gym floor (open Monday–Saturday 7:00 AM – 2:00 AM in Block A, North Nazimabad). For personalized membership inquiries, class schedules (Aerobics, Zumba, Cycling), or free trial sessions, message our front desk directly on WhatsApp at 0320 8200254!",
+            modelUsed: 'offline-fallback',
+          });
+        }
       }
     }
 
-    const replyText = response.text || "I'm here to help you stay consistent and hit your fitness goals. What would you like to work on today?";
+    const replyText = response?.text || "I'm here to help you stay consistent and hit your fitness goals at Pro Fit Gym. What would you like to work on today?";
 
     return res.json({
       text: replyText,
-      modelUsed: modelName,
+      modelUsed: actualModel,
     });
   } catch (error: any) {
     console.error('Error generating chat response:', error);
-    return res.status(500).json({
-      error: error?.message || 'Failed to generate response',
+    return res.json({
+      text: "Welcome to Pro Fit Gym! Feel free to visit us in Block A, North Nazimabad (open 7:00 AM – 2:00 AM) or connect directly on WhatsApp (0320 8200254) for memberships, classes, and personalized coaching guidance.",
+      modelUsed: 'offline-fallback',
     });
   }
 });
