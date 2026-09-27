@@ -8,7 +8,7 @@ interface ProFitIconProps {
 
 export const ProFitIcon: React.FC<ProFitIconProps> = ({
   className = 'w-9 h-9 sm:w-10 sm:h-10',
-  strokeColor = '#D4AF37',
+  strokeColor = '#C6FF00',
 }) => {
   return (
     <svg
@@ -20,8 +20,8 @@ export const ProFitIcon: React.FC<ProFitIconProps> = ({
     >
       {/* Dynamic glow effect filter */}
       <defs>
-        <filter id="gold-glow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="#D4AF37" floodOpacity="0.45" />
+        <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="#C6FF00" floodOpacity="0.45" />
         </filter>
       </defs>
 
@@ -30,7 +30,7 @@ export const ProFitIcon: React.FC<ProFitIconProps> = ({
         strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        filter="url(#gold-glow)"
+        filter="url(#neon-glow)"
       >
         {/* Head, Hair & Profile */}
         <path d="M 39 24 Q 42 22 45 23 Q 48 24 50 28 Q 51 32 49 35 L 45 37" />

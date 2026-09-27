@@ -44,12 +44,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
       <div className="relative w-full max-w-lg rounded-3xl bg-[#141414] border border-[#2B2B2B] shadow-2xl p-6 sm:p-8 overflow-hidden text-white">
         {/* Glow */}
-        <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#C6FF00]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-[#262626] mb-6">
           <div>
-            <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#D4AF37] block mb-1">
+            <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#C6FF00] block mb-1">
               FREE TRIAL & GYM TOUR
             </span>
             <h3 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">
@@ -76,7 +76,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="e.g. Daniyal Ahmed"
-              className="w-full px-4 py-2.5 rounded-xl bg-[#0D0D0D] border border-[#2B2B2B] text-sm text-white focus:outline-none focus:border-[#D4AF37] transition-colors"
+              className="w-full px-4 py-2.5 rounded-xl bg-[#0D0D0D] border border-[#2B2B2B] text-sm text-white focus:outline-none focus:border-[#C6FF00] transition-colors"
             />
           </div>
 
@@ -92,7 +92,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                   onClick={() => setGoal(g)}
                   className={`text-left px-3 py-2 rounded-xl text-xs font-medium border transition-all cursor-pointer ${
                     goal === g
-                      ? 'bg-[#D4AF37] text-black font-bold border-[#D4AF37]'
+                      ? 'bg-[#C6FF00] text-black font-bold border-[#C6FF00]'
                       : 'bg-[#1C1C1C] text-neutral-300 border-[#2B2B2B] hover:border-neutral-600'
                   }`}
                 >
@@ -131,7 +131,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             <select
               value={slot}
               onChange={(e) => setSlot(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl bg-[#0D0D0D] border border-[#2B2B2B] text-xs sm:text-sm text-white focus:outline-none focus:border-[#D4AF37]"
+              className="w-full px-4 py-2.5 rounded-xl bg-[#0D0D0D] border border-[#2B2B2B] text-xs sm:text-sm text-white focus:outline-none focus:border-[#C6FF00]"
             >
               {timeSlots.map((s) => (
                 <option key={s} value={s} className="bg-[#141414] text-white">
@@ -146,7 +146,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
         <div className="mt-6 pt-5 border-t border-[#262626]">
           <button
             onClick={handleLaunchWhatsApp}
-            className="w-full py-3.5 px-6 rounded-full bg-[#D4AF37] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#c59e2b] transition-all cursor-pointer active:scale-95 shadow-[0_0_20px_rgba(212,175,55,0.35)]"
+            className="w-full py-3.5 px-6 rounded-full bg-[#C6FF00] text-black font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#b5ea00] transition-all cursor-pointer active:scale-95 shadow-[0_0_20px_rgba(198, 255, 0,0.35)]"
           >
             <MessageCircle className="w-4 h-4" />
             <span>CONFIRM ON WHATSAPP WITH PRO FIT GYM</span>

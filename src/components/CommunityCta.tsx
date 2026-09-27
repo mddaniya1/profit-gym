@@ -19,13 +19,13 @@ export const CommunityCta: React.FC = () => {
 
   return (
     <section className="relative px-4 sm:px-6 lg:px-8 py-14 sm:py-20 bg-[#0D0D0D]">
-      <div className="max-w-5xl mx-auto rounded-3xl sm:rounded-[36px] p-8 sm:p-14 bg-gradient-to-b from-[#181818] to-[#121212] border border-[#2B2B2B] shadow-2xl relative overflow-hidden text-center">
+      <div className="max-w-5xl mx-auto rounded-3xl sm:rounded-[36px] p-8 sm:p-14 bg-gradient-to-b from-[#161616] to-[#111111] border border-[#222222] shadow-2xl relative overflow-hidden text-center">
         {/* Glow backdrop */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#C6FF00]/5 rounded-full blur-3xl pointer-events-none" />
 
         {/* Center Thumbnail Avatar */}
         <div className="relative z-10 flex flex-col items-center">
-          <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-[#D4AF37] mb-5 shadow-[0_0_20px_rgba(212,175,55,0.3)] bg-neutral-900">
+          <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-[#C6FF00] mb-5 shadow-[0_0_20px_rgba(198,255,0,0.3)] bg-neutral-900">
             <img
               src={ASSETS.hero}
               alt="Pro Fit Gym Community"
@@ -34,7 +34,7 @@ export const CommunityCta: React.FC = () => {
             />
           </div>
 
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF37] mb-2 block">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#C6FF00] mb-2 block">
             [Sign Up]
           </span>
 
@@ -48,13 +48,13 @@ export const CommunityCta: React.FC = () => {
 
           {/* Form or Success State */}
           {isSubscribed ? (
-            <div className="flex items-center gap-3 bg-[#1A1A1A] border border-[#D4AF37]/40 px-6 py-4 rounded-full text-[#D4AF37] font-bold text-xs sm:text-sm animate-in fade-in">
-              <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />
+            <div className="flex items-center gap-3 bg-[#161616] border border-[#C6FF00]/40 px-6 py-4 rounded-full text-[#C6FF00] font-bold text-xs sm:text-sm animate-in fade-in">
+              <CheckCircle2 className="w-5 h-5 text-[#C6FF00]" />
               <span>Welcome to Pro Fit Gym! Check your inbox for your starter guide.</span>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="w-full max-w-md">
-              <div className="flex flex-col sm:flex-row items-center gap-3 p-1.5 rounded-full bg-[#0D0D0D] border border-[#2E2E2E] focus-within:border-[#D4AF37] transition-colors">
+              <div className="flex flex-col sm:flex-row items-center gap-3 p-1.5 rounded-full bg-[#0D0D0D] border border-[#222222] focus-within:border-[#C6FF00] transition-colors">
                 <input
                   type="email"
                   value={email}
@@ -65,7 +65,7 @@ export const CommunityCta: React.FC = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-7 py-3 rounded-full bg-[#D4AF37] text-black font-extrabold text-xs tracking-wider uppercase hover:bg-[#c59e2b] transition-all cursor-pointer whitespace-nowrap active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                  className="w-full sm:w-auto px-7 py-3 rounded-full bg-[#C6FF00] text-black font-extrabold text-xs tracking-wider uppercase hover:bg-[#b5ea00] transition-all cursor-pointer whitespace-nowrap active:scale-95 shadow-[0_0_15px_rgba(198,255,0,0.3)]"
                 >
                   SUBSCRIBE
                 </button>

@@ -31,7 +31,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           <span className="font-display text-5xl font-black tracking-widest text-stroke-white uppercase -mt-3">
             ELEGANCE
           </span>
-          <span className="font-display text-5xl font-black tracking-widest text-[#D4AF37] -mt-3">
+          <span className="font-display text-5xl font-black tracking-widest text-[#C6FF00] -mt-3">
             PRESTIGE
           </span>
         </div>
@@ -41,8 +41,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           {/* Top Left Quote / Ethos */}
           <div className="max-w-md sm:max-w-lg mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
-              <span className="text-[11px] sm:text-xs font-bold tracking-widest uppercase text-[#D4AF37]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C6FF00]" />
+              <span className="text-[11px] sm:text-xs font-bold tracking-widest uppercase text-[#C6FF00]">
                 GYM · NORTH NAZIMABAD, KARACHI
               </span>
             </div>
@@ -55,7 +55,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           <div className="max-w-4xl">
             <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[98px] font-black uppercase tracking-tight text-white leading-[0.92] mb-6 sm:mb-8">
               REDEFINING FITNESS <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5E6B3] to-[#D4AF37]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E8FF80] to-[#C6FF00]">
                 WITH ELEGANCE, POWER & PRESTIGE
               </span>
             </h1>
@@ -68,10 +68,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             <div className="flex flex-wrap items-center gap-4 sm:gap-5">
               <button
                 onClick={onOpenBooking}
-                className="inline-flex items-center gap-3 bg-[#D4AF37] text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase px-7 sm:px-8 py-3.5 sm:py-4 rounded-full hover:bg-[#c59e2b] hover:shadow-[0_0_25px_rgba(212,175,55,0.45)] transition-all transform active:scale-95 group cursor-pointer"
+                className="inline-flex items-center gap-3 bg-[#C6FF00] text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase px-7 sm:px-8 py-3.5 sm:py-4 rounded-full hover:bg-[#b5ea00] hover:shadow-[0_0_25px_rgba(198,255,0,0.45)] transition-all transform active:scale-95 group cursor-pointer"
               >
                 <span>BOOK A FREE TRIAL</span>
-                <span className="w-6 h-6 rounded-full bg-black flex items-center justify-center text-[#D4AF37] group-hover:translate-x-0.5 transition-transform">
+                <span className="w-6 h-6 rounded-full bg-black flex items-center justify-center text-[#C6FF00] group-hover:translate-x-0.5 transition-transform">
                   <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </button>
@@ -86,8 +86,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           </div>
         </div>
 
-        {/* Bottom subtle gold accent highlight bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
+        {/* Bottom subtle neon accent highlight bar */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#C6FF00]/50 to-transparent" />
       </div>
     </section>
   );

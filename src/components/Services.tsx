@@ -29,7 +29,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   }, []);
 
   const getIcon = (type: string, isHighlighted: boolean) => {
-    const iconClass = isHighlighted ? 'text-black' : 'text-[#D4AF37]';
+    const iconClass = isHighlighted ? 'text-black' : 'text-[#C6FF00]';
     switch (type) {
       case 'dumbbell':
         return <Dumbbell className={`w-6 h-6 ${iconClass}`} />;
@@ -59,7 +59,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#D4AF37] inline-block mb-3">
+          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C6FF00] inline-block mb-3">
             OUR SERVICES & CLASSES
           </span>
           <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white tracking-tight leading-[0.95]">
@@ -87,15 +87,15 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                     : 'opacity-0 translate-y-10'
                 } ${
                   isHighlight
-                    ? 'bg-[#D4AF37] text-black shadow-[0_0_35px_rgba(212,175,55,0.35)] hover:scale-[1.02]'
-                    : 'bg-[#161616] text-white border border-[#262626] hover:border-[#383838] hover:bg-[#1A1A1A]'
+                    ? 'bg-[#C6FF00] text-black shadow-[0_0_35px_rgba(198,255,0,0.35)] hover:scale-[1.02]'
+                    : 'bg-[#111111] text-white border border-[#222222] hover:border-[#383838] hover:bg-[#161616]'
                 }`}
               >
                 <div>
                   {/* Icon */}
                   <div
                     className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${
-                      isHighlight ? 'bg-black/10' : 'bg-[#222222]'
+                      isHighlight ? 'bg-black/10' : 'bg-[#1A1A1A]'
                     }`}
                   >
                     {getIcon(service.iconName, !!isHighlight)}
@@ -125,7 +125,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                   <button
                     type="button"
                     className={`inline-flex items-center gap-2 text-xs font-black tracking-wider uppercase group-hover:gap-3 transition-all ${
-                      isHighlight ? 'text-black hover:opacity-80' : 'text-neutral-300 group-hover:text-[#D4AF37]'
+                      isHighlight ? 'text-black hover:opacity-80' : 'text-neutral-300 group-hover:text-[#C6FF00]'
                     }`}
                   >
                     <span>VIEW DETAILS</span>
@@ -139,7 +139,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
           {/* 6th Slot: Featured Showcase Card */}
           <div
             style={{ transitionDelay: `${6 * 120}ms` }}
-            className={`relative rounded-3xl overflow-hidden border border-[#262626] bg-[#161616] min-h-[320px] group transition-all duration-700 ease-out hover:delay-0 ${
+            className={`relative rounded-3xl overflow-hidden border border-[#222222] bg-[#111111] min-h-[320px] group transition-all duration-700 ease-out hover:delay-0 ${
               isVisible
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-10'
@@ -156,7 +156,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
 
             {/* Bottom Content Tag */}
             <div className="absolute bottom-6 left-6 right-6">
-              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#D4AF37] block mb-1">
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#C6FF00] block mb-1">
                 PREMIUM EXPERIENCE
               </span>
               <h4 className="font-display text-2xl sm:text-3xl text-white font-black uppercase leading-tight">

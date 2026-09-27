@@ -14,7 +14,7 @@ export const FAQ: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#D4AF37] inline-block mb-3">
+          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C6FF00] inline-block mb-3">
             FREQUENTLY ASKED QUESTIONS
           </span>
           <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white tracking-tight leading-[0.95]">
@@ -32,8 +32,8 @@ export const FAQ: React.FC = () => {
                 key={index}
                 className={`rounded-2xl transition-all duration-300 border ${
                   isOpen
-                    ? 'bg-[#181818] border-[#383838] shadow-xl'
-                    : 'bg-[#141414] border-[#242424] hover:border-[#303030]'
+                    ? 'bg-[#141414] border-[#2E2E2E] shadow-xl'
+                    : 'bg-[#111111] border-[#222222] hover:border-[#303030]'
                 }`}
               >
                 <button
@@ -54,8 +54,8 @@ export const FAQ: React.FC = () => {
                   <span
                     className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
                       isOpen
-                        ? 'bg-[#D4AF37] text-black shadow-[0_0_12px_rgba(212,175,55,0.35)] rotate-90'
-                        : 'bg-[#222222] text-neutral-300'
+                        ? 'bg-[#C6FF00] text-black shadow-[0_0_12px_rgba(198,255,0,0.35)] rotate-90'
+                        : 'bg-[#1A1A1A] text-neutral-300'
                     }`}
                   >
                     {isOpen ? <X className="w-5 h-5 stroke-[2.5]" /> : <Plus className="w-5 h-5 stroke-[2.5]" />}
@@ -65,7 +65,7 @@ export const FAQ: React.FC = () => {
                 {/* Expanded Answer Content */}
                 {isOpen && (
                   <div className="px-6 sm:px-8 pb-6 pt-1 animate-in fade-in duration-200">
-                    <div className="pt-3 border-t border-[#262626]">
+                    <div className="pt-3 border-t border-[#222222]">
                       <p className="text-xs sm:text-sm text-[#A0A0A0] leading-relaxed">
                         {faq.answer}
                       </p>

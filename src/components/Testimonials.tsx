@@ -26,11 +26,11 @@ export const Testimonials: React.FC = () => {
         {/* Section Header with Carousel Controls matching Reference */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div>
-            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#D4AF37] inline-block mb-3">
+            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C6FF00] inline-block mb-3">
               MEMBER EXPERIENCES
             </span>
             <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white tracking-tight leading-[0.95] max-w-2xl">
-              REAL VOICES<span className="text-[#D4AF37]">.</span> REAL EXPERIENCES<span className="text-[#D4AF37]">.</span>
+              REAL VOICES<span className="text-[#C6FF00]">.</span> REAL EXPERIENCES<span className="text-[#C6FF00]">.</span>
             </h2>
           </div>
 
@@ -39,14 +39,14 @@ export const Testimonials: React.FC = () => {
             <button
               onClick={prevSlide}
               aria-label="Previous testimonial"
-              className="w-12 h-12 rounded-full border border-[#2E2E2E] bg-[#161616] flex items-center justify-center text-white hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all cursor-pointer active:scale-95"
+              className="w-12 h-12 rounded-full border border-[#222222] bg-[#111111] flex items-center justify-center text-white hover:border-[#C6FF00] hover:text-[#C6FF00] transition-all cursor-pointer active:scale-95"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
             <button
               onClick={nextSlide}
               aria-label="Next testimonial"
-              className="w-12 h-12 rounded-full bg-[#D4AF37] flex items-center justify-center text-black hover:bg-[#c59e2b] transition-all cursor-pointer active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+              className="w-12 h-12 rounded-full bg-[#C6FF00] flex items-center justify-center text-black hover:bg-[#b5ea00] transition-all cursor-pointer active:scale-95 shadow-[0_0_15px_rgba(198,255,0,0.3)]"
             >
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -56,21 +56,21 @@ export const Testimonials: React.FC = () => {
         {/* Carousel Grid: Featured Large Card + 2 Preview Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {/* Main Featured Testimonial Card */}
-          <div className="lg:col-span-6 rounded-3xl p-8 sm:p-10 bg-[#161616] border border-[#2A2A2A] shadow-2xl flex flex-col justify-between relative overflow-hidden">
+          <div className="lg:col-span-6 rounded-3xl p-8 sm:p-10 bg-[#111111] border border-[#222222] shadow-2xl flex flex-col justify-between relative overflow-hidden">
             <div className="absolute top-6 right-6 text-neutral-800 pointer-events-none">
               <Quote className="w-20 h-20 opacity-30" />
             </div>
 
             <div className="relative z-10">
               {/* Highlight Stat Tag */}
-              <div className="inline-block bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/30 text-xs font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-6">
+              <div className="inline-block bg-[#C6FF00]/15 text-[#C6FF00] border border-[#C6FF00]/30 text-xs font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-6">
                 {activeTestimonial.highlightStat}
               </div>
 
               {/* Star Rating */}
-              <div className="flex items-center gap-1.5 text-[#D4AF37] mb-6">
+              <div className="flex items-center gap-1.5 text-[#C6FF00] mb-6">
                 {[...Array(activeTestimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[#D4AF37]" />
+                  <Star key={i} className="w-5 h-5 fill-[#C6FF00]" />
                 ))}
               </div>
 
@@ -81,8 +81,8 @@ export const Testimonials: React.FC = () => {
             </div>
 
             {/* Author Footer */}
-            <div className="flex items-center gap-4 pt-6 border-t border-[#262626]">
-              <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#D4AF37] shrink-0 bg-neutral-800">
+            <div className="flex items-center gap-4 pt-6 border-t border-[#222222]">
+              <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#C6FF00] shrink-0 bg-neutral-800">
                 <img
                   src={activeTestimonial.image}
                   alt={activeTestimonial.name}
@@ -107,16 +107,16 @@ export const Testimonials: React.FC = () => {
               <div
                 key={item.id}
                 onClick={() => setCurrentIndex((currentIndex + idx + 1) % TESTIMONIALS.length)}
-                className="rounded-3xl p-6 sm:p-7 bg-[#141414] border border-[#242424] hover:border-[#383838] transition-all flex flex-col justify-between cursor-pointer group shadow-lg hover:-translate-y-1"
+                className="rounded-3xl p-6 sm:p-7 bg-[#141414] border border-[#222222] hover:border-[#383838] transition-all flex flex-col justify-between cursor-pointer group shadow-lg hover:-translate-y-1"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#D4AF37] bg-black px-2.5 py-1 rounded-full border border-[#2B2B2B]">
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C6FF00] bg-black px-2.5 py-1 rounded-full border border-[#2B2B2B]">
                       {item.highlightStat}
                     </span>
-                    <div className="flex items-center gap-1 text-[#D4AF37]">
+                    <div className="flex items-center gap-1 text-[#C6FF00]">
                       {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-[#D4AF37]" />
+                        <Star key={i} className="w-3.5 h-3.5 fill-[#C6FF00]" />
                       ))}
                     </div>
                   </div>
@@ -136,7 +136,7 @@ export const Testimonials: React.FC = () => {
                     />
                   </div>
                   <div className="min-w-0">
-                    <h5 className="font-display text-base sm:text-lg text-white font-bold uppercase truncate group-hover:text-[#D4AF37] transition-colors">
+                    <h5 className="font-display text-base sm:text-lg text-white font-bold uppercase truncate group-hover:text-[#C6FF00] transition-colors">
                       {item.name}
                     </h5>
                     <p className="text-[11px] text-neutral-400 truncate">

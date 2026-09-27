@@ -10,7 +10,7 @@ export const Pricing: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#D4AF37] inline-block mb-3">
+          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C6FF00] inline-block mb-3">
             GYM MEMBERSHIP TIERS
           </span>
           <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white tracking-tight leading-[0.95] mb-6">
@@ -18,8 +18,8 @@ export const Pricing: React.FC = () => {
           </h2>
 
           {/* Billing Cycle Toggle */}
-          <div className="inline-flex items-center gap-3 p-1.5 rounded-full bg-[#181818] border border-[#2B2B2B]">
-            <span className="text-[11px] font-extrabold uppercase tracking-wider text-black bg-[#D4AF37] px-3 py-1 rounded-full">
+          <div className="inline-flex items-center gap-3 p-1.5 rounded-full bg-[#161616] border border-[#262626]">
+            <span className="text-[11px] font-extrabold uppercase tracking-wider text-black bg-[#C6FF00] px-3 py-1 rounded-full">
               Save 17%
             </span>
             <div className="flex items-center">
@@ -63,13 +63,13 @@ export const Pricing: React.FC = () => {
                 key={plan.id}
                 className={`relative rounded-3xl p-7 sm:p-9 flex flex-col justify-between transition-all duration-300 ${
                   isHighlight
-                    ? 'bg-[#181818] border-2 border-[#D4AF37] shadow-[0_0_35px_rgba(212,175,55,0.25)] lg:-translate-y-2'
-                    : 'bg-[#141414] border border-[#262626] hover:border-[#383838]'
+                    ? 'bg-[#141414] border-2 border-[#C6FF00] shadow-[0_0_35px_rgba(198,255,0,0.25)] lg:-translate-y-2'
+                    : 'bg-[#111111] border border-[#222222] hover:border-[#383838]'
                 }`}
               >
                 {/* Popular Pill Tag for Highlighted Plan */}
                 {isHighlight && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-black font-extrabold text-[10px] sm:text-xs uppercase tracking-widest px-4 py-1 rounded-full shadow-md">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#C6FF00] text-black font-extrabold text-[10px] sm:text-xs uppercase tracking-widest px-4 py-1 rounded-full shadow-md">
                     MOST POPULAR
                   </div>
                 )}
@@ -79,8 +79,8 @@ export const Pricing: React.FC = () => {
                   <div
                     className={`rounded-2xl p-4 sm:p-5 mb-6 ${
                       isHighlight
-                        ? 'bg-[#D4AF37] text-black'
-                        : 'bg-[#1E1E1E] text-white border border-[#2B2B2B]'
+                        ? 'bg-[#C6FF00] text-black'
+                        : 'bg-[#1A1A1A] text-white border border-[#262626]'
                     }`}
                   >
                     <h3
@@ -117,7 +117,7 @@ export const Pricing: React.FC = () => {
                       rel="noopener noreferrer"
                       className={`w-full py-4 px-6 rounded-full font-extrabold text-xs tracking-wider uppercase flex items-center justify-between transition-all transform active:scale-95 group ${
                         isHighlight
-                          ? 'bg-[#D4AF37] text-black hover:bg-[#c59e2b] shadow-[0_0_20px_rgba(212,175,55,0.4)]'
+                          ? 'bg-[#C6FF00] text-black hover:bg-[#b5ea00] shadow-[0_0_20px_rgba(198,255,0,0.4)]'
                           : 'bg-white text-black hover:bg-neutral-200'
                       }`}
                     >
@@ -129,7 +129,7 @@ export const Pricing: React.FC = () => {
                   </div>
 
                   {/* Features Divider & List */}
-                  <div className="border-t border-[#262626] pt-6">
+                  <div className="border-t border-[#222222] pt-6">
                     <span className="text-xs font-extrabold uppercase tracking-wider text-neutral-400 block mb-4">
                       What Includes:
                     </span>
@@ -138,7 +138,7 @@ export const Pricing: React.FC = () => {
                         <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm">
                           <span
                             className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                              isHighlight ? 'bg-[#D4AF37] text-black' : 'bg-[#2E2E2E] text-[#D4AF37]'
+                              isHighlight ? 'bg-[#C6FF00] text-black' : 'bg-[#222222] text-[#C6FF00]'
                             }`}
                           >
                             <Check className="w-2.5 h-2.5 stroke-[3]" />
