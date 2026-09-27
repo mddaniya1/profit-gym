@@ -21,19 +21,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
   return (
     <header className="sticky top-0 z-50 w-full px-4 sm:px-6 lg:px-8 pt-4 pb-2 bg-[#0D0D0D]/90 backdrop-blur-md transition-all">
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-2.5 px-5 sm:px-8 rounded-full border border-[#222222] bg-[#111111]/95 shadow-2xl">
-        {/* Brand Logo: Uploaded icon logo mark (muscular arm/bicep + lightning bolt) + centered "PRO FIT" */}
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-5 sm:px-8 rounded-full border border-[#222222] bg-[#111111]/95 shadow-2xl">
+        {/* Brand Logo: Uploaded icon logo mark (muscular arm/bicep + lightning bolt) + "PRO FIT" */}
         <a
           href="#home"
-          className="flex flex-col items-center justify-center group focus:outline-none select-none transition-transform hover:scale-105 active:scale-95 shrink-0"
+          className="flex items-center gap-3 sm:gap-3.5 group focus:outline-none select-none transition-transform hover:scale-105 active:scale-95 shrink-0"
           aria-label="Pro Fit Gym Home"
         >
-          <div className="relative flex items-center justify-center">
-            <ProFitIcon className="w-8 h-8 sm:w-9 sm:h-9 text-[#C6FF00] transition-all group-hover:brightness-110" />
+          <div className="relative flex items-center justify-center p-1 sm:p-1.5 rounded-2xl bg-black/60 border border-[#C6FF00]/25 shadow-[0_0_20px_rgba(198,255,0,0.18)] transition-all group-hover:border-[#C6FF00]/50 group-hover:shadow-[0_0_25px_rgba(198,255,0,0.3)]">
+            <ProFitIcon className="w-10 h-10 sm:w-12 sm:h-12 text-[#C6FF00] transition-all group-hover:brightness-110" />
           </div>
-          <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.25em] text-[#F5F5F5] uppercase text-center mt-0.5 leading-none transition-colors group-hover:text-[#C6FF00]">
-            PRO FIT
-          </span>
+          <div className="flex flex-col">
+            <span className="font-display text-2xl sm:text-3xl font-black tracking-wider text-[#F5F5F5] uppercase leading-none transition-colors group-hover:text-[#C6FF00]">
+              PRO FIT
+            </span>
+            <span className="text-[10px] sm:text-[11px] font-extrabold tracking-[0.25em] text-[#C6FF00] uppercase mt-1 leading-none">
+              GYM · KARACHI
+            </span>
+          </div>
         </a>
 
         {/* Desktop Nav Links */}
@@ -80,12 +85,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           {/* Mobile Header with Logo Mark */}
           <div className="flex items-center justify-between pb-3 border-b border-[#222222]">
             <div className="flex items-center gap-3">
-              <ProFitIcon className="w-8 h-8 text-[#C6FF00]" />
+              <div className="p-1 rounded-xl bg-black/60 border border-[#C6FF00]/30 shadow-[0_0_12px_rgba(198,255,0,0.2)]">
+                <ProFitIcon className="w-10 h-10 text-[#C6FF00]" />
+              </div>
               <div className="flex flex-col">
-                <span className="text-[11px] font-bold tracking-[0.25em] text-[#F5F5F5] uppercase">
+                <span className="font-display text-2xl font-black tracking-wider text-[#F5F5F5] uppercase leading-none">
                   PRO FIT
                 </span>
-                <span className="text-[10px] text-neutral-400 font-medium">North Nazimabad</span>
+                <span className="text-[10px] text-[#C6FF00] font-extrabold tracking-widest uppercase mt-0.5">
+                  North Nazimabad
+                </span>
               </div>
             </div>
             <span className="text-[10px] font-bold text-[#C6FF00] px-2.5 py-0.5 rounded-full bg-[#C6FF00]/10 border border-[#C6FF00]/20">

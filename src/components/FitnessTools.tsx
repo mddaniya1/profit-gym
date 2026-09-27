@@ -17,7 +17,6 @@ import { getWhatsAppLink } from '../data/content';
 
 interface FitnessToolsProps {
   onOpenBooking: () => void;
-  onOpenChat?: () => void;
 }
 
 type ActiveTab = 'tdee' | 'bmi';
@@ -26,7 +25,7 @@ type Gender = 'male' | 'female';
 type ActivityLevel = 'sedentary' | 'light' | 'moderate' | 'heavy' | 'athlete';
 type FitnessGoal = 'cut_aggressive' | 'cut_moderate' | 'maintain' | 'bulk_lean';
 
-export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpenChat }) => {
+export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking }) => {
   const [activeTab, setActiveTab] = useState<ActiveTab>('tdee');
   const [unit, setUnit] = useState<UnitSystem>('metric');
   const [gender, setGender] = useState<Gender>('male');
@@ -591,27 +590,13 @@ export const FitnessTools: React.FC<FitnessToolsProps> = ({ onOpenBooking, onOpe
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </a>
 
-                <div className="flex gap-2.5">
-                  <button
-                    type="button"
-                    onClick={onOpenBooking}
-                    className="flex-1 py-3 px-4 rounded-full border border-white/20 hover:border-white/60 bg-black/40 hover:bg-black/70 text-white font-bold text-xs uppercase tracking-wider transition-colors text-center cursor-pointer"
-                  >
-                    Book In-Person Assessment
-                  </button>
-
-                  {onOpenChat && (
-                    <button
-                      type="button"
-                      onClick={onOpenChat}
-                      className="py-3 px-4 rounded-full border border-[#C6FF00]/40 hover:border-[#C6FF00] bg-[#C6FF00]/10 hover:bg-[#C6FF00]/20 text-[#C6FF00] font-extrabold text-xs uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer"
-                      title="Ask AI Coach for advice on these numbers"
-                    >
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span>Ask AI</span>
-                    </button>
-                  )}
-                </div>
+                <button
+                  type="button"
+                  onClick={onOpenBooking}
+                  className="w-full py-3.5 px-4 rounded-full border border-white/20 hover:border-white/60 bg-black/40 hover:bg-black/70 text-white font-bold text-xs uppercase tracking-wider transition-colors text-center cursor-pointer"
+                >
+                  Book In-Person Assessment
+                </button>
               </div>
             </div>
           </div>

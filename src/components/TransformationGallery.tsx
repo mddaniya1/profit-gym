@@ -20,12 +20,10 @@ import {
 
 interface TransformationGalleryProps {
   onOpenBooking: () => void;
-  onOpenChat?: () => void;
 }
 
 export const TransformationGallery: React.FC<TransformationGalleryProps> = ({
   onOpenBooking,
-  onOpenChat,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeCategory, setActiveCategory] = useState<string>('All');

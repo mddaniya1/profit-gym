@@ -4,7 +4,6 @@
  */
 
 import React, { useState } from 'react';
-import { MessageCircle, Sparkles, Bot } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -21,17 +20,15 @@ import { CommunityCta } from './components/CommunityCta';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { DetailModal } from './components/DetailModal';
-import { GeminiChatModal } from './components/GeminiChatModal';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import {
   ServiceItem,
   PackageItem,
   ArticleItem,
-  getWhatsAppLink,
 } from './data/content';
 
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [isChatOpen, setIsChatOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const [selectedPackage, setSelectedPackage] = useState<PackageItem | null>(null);
   const [selectedArticle, setSelectedArticle] = useState<ArticleItem | null>(null);
@@ -65,13 +62,11 @@ export default function App() {
         {/* 6. Transformations Gallery Carousel */}
         <TransformationGallery
           onOpenBooking={() => setIsBookingOpen(true)}
-          onOpenChat={() => setIsChatOpen(true)}
         />
 
         {/* 7. Fitness Tools & Metabolic Calculator */}
         <FitnessTools
           onOpenBooking={() => setIsBookingOpen(true)}
-          onOpenChat={() => setIsChatOpen(true)}
         />
 
         {/* 8. Pricing Section */}
@@ -93,43 +88,10 @@ export default function App() {
       {/* 11. Footer & Giant Wordmark */}
       <Footer />
 
-      {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 pointer-events-auto">
-        {/* Floating Gemini AI Coach Trigger */}
-        <button
-          onClick={() => setIsChatOpen(true)}
-          aria-label="Open Pro Fit Gym AI Coach"
-          className="group flex items-center gap-2.5 bg-[#111111] hover:bg-[#1A1A1A] text-white border-2 border-[#C6FF00] px-4 py-2.5 rounded-full shadow-[0_0_20px_rgba(198,255,0,0.35)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
-        >
-          <div className="w-2 h-2 rounded-full bg-[#C6FF00] animate-pulse" />
-          <Sparkles className="w-4 h-4 text-[#C6FF00]" />
-          <span className="font-display text-sm font-black uppercase tracking-wider text-white">
-            AI COACH
-          </span>
-        </button>
-
-        {/* Floating WhatsApp Action Button */}
-        <a
-          href={getWhatsAppLink('Hi Pro Fit Gym, I would like to inquire about joining Pro Fit Gym North Nazimabad!')}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Direct WhatsApp chat with Pro Fit Gym"
-          className="w-14 h-14 rounded-full bg-[#C6FF00] text-black flex items-center justify-center shadow-[0_0_25px_rgba(198,255,0,0.5)] hover:scale-110 active:scale-95 transition-all group hover:bg-[#d5ff33]"
-        >
-          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-black rounded-full flex items-center justify-center">
-            <span className="w-2 h-2 bg-[#C6FF00] rounded-full animate-ping" />
-          </span>
-          <MessageCircle className="w-7 h-7 fill-current stroke-none" />
-        </a>
-      </div>
+      {/* Real Floating WhatsApp Action Button */}
+      <FloatingWhatsApp />
 
       {/* Interactive Modals */}
-      <GeminiChatModal
-        isOpen={isChatOpen}
-        onClose={() => setIsChatOpen(false)}
-        onOpenBooking={() => setIsBookingOpen(true)}
-      />
-
       <BookingModal
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}
